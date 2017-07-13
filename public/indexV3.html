@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 </head>
 <body>
 
@@ -29,20 +30,21 @@
 <div class="pusher">
 
     <div class="ui fixed inverted menu">
-        <div class="item">
+        <div id="menuLogo" class="item image maxi">
             <img src="/images/logo.png">
         </div>
-        <a class="item">Features</a>
-        <a class="item">Testimonials</a>
-        <a class="item">Sign-in</a>
+        <a href="#" class="item">Home</a>
+        <a href="https://servers.fivem.net/" class="item">Server list</a>
+        <a href="/about.html" class="item">About</a>
     </div>
 
-    <div class="ui main text container">
+
+    <div id = "mainContainer" class="ui main text container">
         <h1 class="ui header">Five-M-pop-Tracker</h1>
         <p>A basic website whichs track the number of players connected on the various five M servers.</p>
 
         <div class="ui info message">
-            <i class="close icon"></i>
+            <!--<i class="close icon"></i>-->
             <div class="header">
                 Application in development
             </div>
@@ -81,39 +83,37 @@
         <div class="ui center aligned container">
             <div class="ui stackable inverted divided grid">
                 <div class="three wide column">
-                    <h4 class="ui inverted header">Group 1</h4>
+                    <h4 class="ui inverted header">Five M</h4>
                     <div class="ui inverted link list">
-                        <a href="#" class="item">Link One</a>
-                        <a href="#" class="item">Link Two</a>
-                        <a href="#" class="item">Link Three</a>
-                        <a href="#" class="item">Link Four</a>
+                        <a href="https://servers.fivem.net/" class="item">Data source</a>
                     </div>
                 </div>
                 <div class="three wide column">
-                    <h4 class="ui inverted header">Group 2</h4>
+                    <h4 class="ui inverted header">ClubV RP</h4>
                     <div class="ui inverted link list">
-                        <a href="#" class="item">Link One</a>
-                        <a href="#" class="item">Link Two</a>
-                        <a href="#" class="item">Link Three</a>
-                        <a href="#" class="item">Link Four</a>
+                        <a href="http://www.clubv-rp.fr/" class="item">Website</a>
+                        <a href="http://www.clubv-rp.fr/forum/" class="item">Forum</a>
+                        <a href="http://discord.clubv-rp.fr/" class="item">Discord</a>
+                        <a href="http://www.clubv-rp.fr/#contact" class="item">Contact</a>
                     </div>
                 </div>
                 <div class="three wide column">
-                    <h4 class="ui inverted header">Group 3</h4>
+                    <h4 class="ui inverted header">Application</h4>
                     <div class="ui inverted link list">
-                        <a href="#" class="item">Link One</a>
-                        <a href="#" class="item">Link Two</a>
-                        <a href="#" class="item">Link Three</a>
-                        <a href="#" class="item">Link Four</a>
+                        <a href="https://github.com/Krisscut/FiveM-pop-tracker" class="item">Github</a>
+                        <a href="https://github.com/Krisscut/FiveM-pop-tracker/issues" class="item">Report an issue</a>
+                        <a href="https://github.com/Krisscut/FiveM-pop-tracker/wiki" class="item">Wiki</a>
+                        <a href="https://krisscut.github.io/FiveM-pop-tracker/." class="item">Download link</a>
                     </div>
                 </div>
                 <div class="seven wide column">
-                    <h4 class="ui inverted header">Footer Header</h4>
-                    <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                    <h4 class="ui inverted header">FiveM-pop-tracker</h4>
+                    <p>A basic website whichs track the number of players connected on the various five M servers.</p>
+                    <p>Data extracted from the <a href="https://servers.fivem.net/">FiveM' serverlist</a>.</p>
                 </div>
             </div>
             <div class="ui inverted section divider"></div>
-            <img src="assets/images/logo.png" class="ui centered mini image">
+            <img src="/images/logo.png" class="ui centered image">
             <div class="ui horizontal inverted small divided link list">
                 <a class="item" href="#">Site Map</a>
                 <a class="item" href="#">Contact Us</a>
@@ -125,9 +125,12 @@
 </div>
 
 <script>
-    $('.sidebar')
-            .sidebar('show')
-    ;
+    $('#menuLogo').click(function(){
+        $('.sidebar')
+                .sidebar('show')
+        ;
+    });
+
     $('.ui.search')
             .search({
                 source: content
