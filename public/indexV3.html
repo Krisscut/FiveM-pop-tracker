@@ -70,7 +70,7 @@
 
         <div class="ui segments">
             <div class="ui segment">
-                <div class="ui category search">
+                <div id = "searchField" class="ui category search">
                     <div class="ui icon input" data-tooltip="Search by ip or server name" data-position="left center">
                         <input class="prompt" type="text" placeholder="Search for a server">
                         <i class="search icon"></i>
@@ -141,6 +141,10 @@
             })
     ;
     */
+    $('#searchField').click(function(){
+        toastr["info"]("Not implemented Yet ! You can altough use the 'ip' parameter in the url to get the data of a specific server :  indexV3.html?ip=46.105.42.129:30120", "Work in progress");
+    });
+    
 
 </script>
 
