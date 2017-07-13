@@ -1,0 +1,393 @@
+2017-07-13T17:14:05.671Z - info: Starting tracker
+2017-07-13T17:14:05.715Z - debug: Performing tracker checks
+2017-07-13T17:14:05.726Z - info: App started !
+2017-07-13T17:14:06.472Z - debug: Got response: 200
+2017-07-13T17:14:08.300Z - debug: Calling on result
+2017-07-13T17:14:08.912Z - warn: No entry in the database for the server 96.37.253.222:30120
+2017-07-13T17:14:08.964Z - warn: No entry in the database for the server 188.165.252.197:32137
+2017-07-13T17:14:08.973Z - warn: No entry in the database for the server 151.80.110.43:30120
+2017-07-13T17:14:08.999Z - warn: No entry in the database for the server 222.186.151.56:30120
+2017-07-13T17:14:09.022Z - warn: No entry in the database for the server 198.50.198.120:30130
+2017-07-13T17:14:09.033Z - warn: No entry in the database for the server 52.170.37.36:30120
+2017-07-13T17:14:09.035Z - warn: No entry in the database for the server 90.108.152.105:30210
+2017-07-13T17:14:09.038Z - warn: No entry in the database for the server 217.182.33.202:30130
+2017-07-13T17:14:09.039Z - warn: No entry in the database for the server 79.158.108.138:30120
+2017-07-13T17:14:09.045Z - warn: No entry in the database for the server 94.177.237.46:30120
+2017-07-13T17:14:09.050Z - warn: No entry in the database for the server 5.196.246.178:30121
+2017-07-13T17:14:09.056Z - warn: No entry in the database for the server 92.222.110.57:30120
+2017-07-13T17:14:09.066Z - warn: No entry in the database for the server 109.70.148.65:30120
+2017-07-13T17:14:09.067Z - warn: No entry in the database for the server 177.195.163.156:8080
+2017-07-13T17:14:09.073Z - warn: No entry in the database for the server 178.32.181.197:30120
+2017-07-13T17:14:09.075Z - warn: No entry in the database for the server 45.58.114.154:30120
+2017-07-13T17:14:09.079Z - warn: No entry in the database for the server 149.56.243.32:30125
+2017-07-13T17:14:09.086Z - warn: No entry in the database for the server 109.70.148.65:30121
+2017-07-13T17:14:09.094Z - warn: No entry in the database for the server 217.182.34.201:30120
+2017-07-13T17:14:09.099Z - warn: No entry in the database for the server 178.33.108.71:30120
+2017-07-13T17:14:09.107Z - warn: No entry in the database for the server 82.16.75.90:30120
+2017-07-13T17:15:05.730Z - debug: Performing tracker checks
+2017-07-13T17:15:06.294Z - debug: Got response: 200
+2017-07-13T17:15:07.424Z - debug: Calling on result
+2017-07-13T17:15:08.099Z - warn: No entry in the database for the server 89.189.113.236:30120
+2017-07-13T17:15:24.616Z - debug: Timestamp received: 1499966064000
+2017-07-13T17:15:24.617Z - debug: Timestamp parsed: Thu Jul 13 2017 19:14:24 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:16:05.745Z - debug: Performing tracker checks
+2017-07-13T17:16:06.258Z - debug: Got response: 200
+2017-07-13T17:16:06.778Z - debug: Calling on result
+2017-07-13T17:16:07.351Z - warn: No entry in the database for the server 217.23.6.45:30138
+2017-07-13T17:16:07.406Z - warn: No entry in the database for the server 185.38.149.133:30138
+2017-07-13T17:16:07.412Z - warn: No entry in the database for the server 176.31.125.26:31000
+2017-07-13T17:16:07.418Z - warn: No entry in the database for the server 89.163.227.83:30120
+2017-07-13T17:16:07.421Z - warn: No entry in the database for the server 70.161.175.30:30120
+2017-07-13T17:16:07.423Z - warn: No entry in the database for the server 216.52.25.130:30121
+2017-07-13T17:16:07.427Z - warn: No entry in the database for the server 158.69.241.206:30174
+2017-07-13T17:16:07.430Z - warn: No entry in the database for the server 158.69.241.206:30192
+2017-07-13T17:16:07.434Z - warn: No entry in the database for the server 217.182.170.151:30120
+2017-07-13T17:16:07.440Z - warn: No entry in the database for the server 185.13.38.33:30120
+2017-07-13T17:16:07.451Z - warn: No entry in the database for the server 46.105.141.109:30120
+2017-07-13T17:16:07.453Z - warn: No entry in the database for the server 109.157.209.148:30120
+2017-07-13T17:16:07.455Z - warn: No entry in the database for the server 151.80.27.157:30120
+2017-07-13T17:16:07.462Z - warn: No entry in the database for the server 198.27.86.46:30120
+2017-07-13T17:16:07.463Z - warn: No entry in the database for the server 185.114.225.102:30120
+2017-07-13T17:16:07.464Z - warn: No entry in the database for the server 176.31.105.98:30120
+2017-07-13T17:16:07.489Z - warn: No entry in the database for the server 52.232.108.120:30120
+2017-07-13T17:16:07.491Z - warn: No entry in the database for the server 50.100.119.138:30120
+2017-07-13T17:16:07.499Z - warn: No entry in the database for the server 88.179.128.144:30120
+2017-07-13T17:16:53.855Z - debug: Timestamp received: 1499966154000
+2017-07-13T17:16:53.856Z - debug: Timestamp parsed: Thu Jul 13 2017 19:15:54 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:17:05.758Z - debug: Performing tracker checks
+2017-07-13T17:17:06.252Z - debug: Got response: 200
+2017-07-13T17:17:06.814Z - debug: Calling on result
+2017-07-13T17:17:07.363Z - warn: No entry in the database for the server 90.113.156.77:30120
+2017-07-13T17:17:07.429Z - warn: No entry in the database for the server 221.229.175.38:30120
+2017-07-13T17:17:07.447Z - warn: No entry in the database for the server 158.69.241.206:30150
+2017-07-13T17:17:07.451Z - warn: No entry in the database for the server 81.236.254.185:30555
+2017-07-13T17:17:07.465Z - warn: No entry in the database for the server 109.238.2.82:30120
+2017-07-13T17:17:07.486Z - warn: No entry in the database for the server 192.99.6.203:30132
+2017-07-13T17:17:07.487Z - warn: No entry in the database for the server 174.92.208.90:30120
+2017-07-13T17:17:07.489Z - warn: No entry in the database for the server 66.190.52.97:30120
+2017-07-13T17:17:53.822Z - debug: Timestamp received: 1499966214000
+2017-07-13T17:17:53.823Z - debug: Timestamp parsed: Thu Jul 13 2017 19:16:54 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:18:05.770Z - debug: Performing tracker checks
+2017-07-13T17:18:06.292Z - debug: Got response: 200
+2017-07-13T17:18:07.201Z - debug: Calling on result
+2017-07-13T17:18:07.818Z - warn: No entry in the database for the server 81.57.173.182:30120
+2017-07-13T17:18:53.829Z - debug: Timestamp received: 1499966214000
+2017-07-13T17:18:53.830Z - debug: Timestamp parsed: Thu Jul 13 2017 19:16:54 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:19:05.784Z - debug: Performing tracker checks
+2017-07-13T17:19:06.322Z - debug: Got response: 200
+2017-07-13T17:19:06.977Z - debug: Calling on result
+2017-07-13T17:19:07.505Z - warn: No entry in the database for the server 192.99.33.118:30126
+2017-07-13T17:19:53.852Z - debug: Timestamp received: 1499966214000
+2017-07-13T17:19:53.853Z - debug: Timestamp parsed: Thu Jul 13 2017 19:16:54 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:20:05.798Z - debug: Performing tracker checks
+2017-07-13T17:20:06.594Z - debug: Got response: 200
+2017-07-13T17:20:07.119Z - debug: Calling on result
+2017-07-13T17:20:53.854Z - debug: Timestamp received: 1499966214000
+2017-07-13T17:20:53.855Z - debug: Timestamp parsed: Thu Jul 13 2017 19:16:54 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:21:05.812Z - debug: Performing tracker checks
+2017-07-13T17:21:06.504Z - debug: Got response: 200
+2017-07-13T17:21:06.947Z - debug: Calling on result
+2017-07-13T17:21:53.853Z - debug: Timestamp received: 1499966454000
+2017-07-13T17:21:53.854Z - debug: Timestamp parsed: Thu Jul 13 2017 19:20:54 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:22:05.824Z - debug: Performing tracker checks
+2017-07-13T17:22:06.417Z - debug: Got response: 200
+2017-07-13T17:22:06.897Z - debug: Calling on result
+2017-07-13T17:22:53.863Z - debug: Timestamp received: 1499966514000
+2017-07-13T17:22:53.864Z - debug: Timestamp parsed: Thu Jul 13 2017 19:21:54 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:23:05.839Z - debug: Performing tracker checks
+2017-07-13T17:23:06.899Z - debug: Got response: 200
+2017-07-13T17:23:08.214Z - debug: Calling on result
+2017-07-13T17:23:53.829Z - debug: Timestamp received: 1499966514000
+2017-07-13T17:23:53.830Z - debug: Timestamp parsed: Thu Jul 13 2017 19:21:54 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:24:05.851Z - debug: Performing tracker checks
+2017-07-13T17:24:06.390Z - debug: Got response: 200
+2017-07-13T17:24:06.841Z - debug: Calling on result
+2017-07-13T17:24:07.521Z - warn: No entry in the database for the server 74.201.57.43:30170
+2017-07-13T17:24:53.827Z - debug: Timestamp received: 1499966514000
+2017-07-13T17:24:53.828Z - debug: Timestamp parsed: Thu Jul 13 2017 19:21:54 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:25:05.867Z - debug: Performing tracker checks
+2017-07-13T17:25:07.049Z - debug: Got response: 200
+2017-07-13T17:25:07.699Z - debug: Calling on result
+2017-07-13T17:25:08.328Z - warn: No entry in the database for the server 87.117.185.64:12133
+2017-07-13T17:25:53.827Z - debug: Timestamp received: 1499966514000
+2017-07-13T17:25:53.828Z - debug: Timestamp parsed: Thu Jul 13 2017 19:21:54 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:25:54.628Z - debug: Timestamp received: 1499966702000
+2017-07-13T17:25:54.629Z - debug: Timestamp parsed: Thu Jul 13 2017 19:25:02 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:26:05.881Z - debug: Performing tracker checks
+2017-07-13T17:26:06.529Z - debug: Got response: 200
+2017-07-13T17:26:07.089Z - debug: Calling on result
+2017-07-13T17:26:07.848Z - warn: No entry in the database for the server 174.49.208.101:30125
+2017-07-13T17:26:46.533Z - debug: Timestamp received: 1499966743000
+2017-07-13T17:26:46.534Z - debug: Timestamp parsed: Thu Jul 13 2017 19:25:43 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:26:53.826Z - debug: Timestamp received: 1499966514000
+2017-07-13T17:26:53.828Z - debug: Timestamp parsed: Thu Jul 13 2017 19:21:54 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:26:54.637Z - debug: Timestamp received: 1499966702000
+2017-07-13T17:26:54.638Z - debug: Timestamp parsed: Thu Jul 13 2017 19:25:02 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:27:05.894Z - debug: Performing tracker checks
+2017-07-13T17:27:06.563Z - debug: Got response: 200
+2017-07-13T17:27:07.918Z - debug: Calling on result
+2017-07-13T17:27:54.629Z - debug: Timestamp received: 1499966702000
+2017-07-13T17:27:54.630Z - debug: Timestamp parsed: Thu Jul 13 2017 19:25:02 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:28:05.907Z - debug: Performing tracker checks
+2017-07-13T17:28:06.541Z - debug: Got response: 200
+2017-07-13T17:28:07.057Z - debug: Calling on result
+2017-07-13T17:28:07.788Z - warn: No entry in the database for the server 172.12.113.92:30120
+2017-07-13T17:28:54.631Z - debug: Timestamp received: 1499966702000
+2017-07-13T17:28:54.632Z - debug: Timestamp parsed: Thu Jul 13 2017 19:25:02 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:28:57.860Z - debug: Timestamp received: 1499966877000
+2017-07-13T17:28:57.861Z - debug: Timestamp parsed: Thu Jul 13 2017 19:27:57 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:29:05.921Z - debug: Performing tracker checks
+2017-07-13T17:29:06.588Z - debug: Got response: 200
+2017-07-13T17:29:07.045Z - debug: Calling on result
+2017-07-13T17:29:54.633Z - debug: Timestamp received: 1499966702000
+2017-07-13T17:29:54.635Z - debug: Timestamp parsed: Thu Jul 13 2017 19:25:02 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:29:57.863Z - debug: Timestamp received: 1499966938000
+2017-07-13T17:29:57.864Z - debug: Timestamp parsed: Thu Jul 13 2017 19:28:58 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:30:05.934Z - debug: Performing tracker checks
+2017-07-13T17:30:07.339Z - debug: Got response: 200
+2017-07-13T17:30:07.845Z - debug: Calling on result
+2017-07-13T17:30:08.383Z - warn: No entry in the database for the server 78.129.138.147:30120
+2017-07-13T17:30:33.921Z - debug: Timestamp received: 1499966968000
+2017-07-13T17:30:33.921Z - debug: Timestamp parsed: Thu Jul 13 2017 19:29:28 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:30:54.635Z - debug: Timestamp received: 1499966702000
+2017-07-13T17:30:54.637Z - debug: Timestamp parsed: Thu Jul 13 2017 19:25:02 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:30:57.165Z - debug: Timestamp received: 1499966938000
+2017-07-13T17:30:57.166Z - debug: Timestamp parsed: Thu Jul 13 2017 19:28:58 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:31:05.947Z - debug: Performing tracker checks
+2017-07-13T17:31:07.609Z - debug: Got response: 200
+2017-07-13T17:31:08.057Z - debug: Calling on result
+2017-07-13T17:31:33.928Z - debug: Timestamp received: 1499966968000
+2017-07-13T17:31:33.930Z - debug: Timestamp parsed: Thu Jul 13 2017 19:29:28 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:31:54.635Z - debug: Timestamp received: 1499966702000
+2017-07-13T17:31:54.636Z - debug: Timestamp parsed: Thu Jul 13 2017 19:25:02 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:31:57.167Z - debug: Timestamp received: 1499966938000
+2017-07-13T17:31:57.168Z - debug: Timestamp parsed: Thu Jul 13 2017 19:28:58 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:32:05.961Z - debug: Performing tracker checks
+2017-07-13T17:32:06.804Z - debug: Got response: 200
+2017-07-13T17:32:07.254Z - debug: Calling on result
+2017-07-13T17:32:07.767Z - warn: No entry in the database for the server 76.244.52.163:30120
+2017-07-13T17:32:33.931Z - debug: Timestamp received: 1499966968000
+2017-07-13T17:32:33.933Z - debug: Timestamp parsed: Thu Jul 13 2017 19:29:28 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:32:54.638Z - debug: Timestamp received: 1499966702000
+2017-07-13T17:32:54.638Z - debug: Timestamp parsed: Thu Jul 13 2017 19:25:02 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:32:57.166Z - debug: Timestamp received: 1499966938000
+2017-07-13T17:32:57.170Z - debug: Timestamp parsed: Thu Jul 13 2017 19:28:58 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:33:05.974Z - debug: Performing tracker checks
+2017-07-13T17:33:08.817Z - debug: Got response: 200
+2017-07-13T17:33:09.553Z - debug: Calling on result
+2017-07-13T17:33:10.271Z - warn: No entry in the database for the server 185.163.126.81:30120
+2017-07-13T17:33:54.641Z - debug: Timestamp received: 1499966702000
+2017-07-13T17:33:54.641Z - debug: Timestamp parsed: Thu Jul 13 2017 19:25:02 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:34:05.988Z - debug: Performing tracker checks
+2017-07-13T17:34:13.034Z - debug: Got response: 200
+2017-07-13T17:34:13.517Z - debug: Calling on result
+2017-07-13T17:34:14.105Z - warn: No entry in the database for the server 73.162.58.192:30120
+2017-07-13T17:34:26.682Z - debug: Timestamp received: 1499967207000
+2017-07-13T17:34:26.684Z - debug: Timestamp parsed: Thu Jul 13 2017 19:33:27 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:34:59.765Z - debug: Timestamp received: 1499967247000
+2017-07-13T17:34:59.766Z - debug: Timestamp parsed: Thu Jul 13 2017 19:34:07 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:35:06.003Z - debug: Performing tracker checks
+2017-07-13T17:35:07.178Z - debug: Got response: 200
+2017-07-13T17:35:07.714Z - debug: Calling on result
+2017-07-13T17:35:08.264Z - warn: No entry in the database for the server 173.179.18.103:30120
+2017-07-13T17:35:53.129Z - debug: Timestamp received: 1499967259000
+2017-07-13T17:35:53.130Z - debug: Timestamp parsed: Thu Jul 13 2017 19:34:19 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:35:58.737Z - debug: Timestamp received: 1499967299000
+2017-07-13T17:35:58.738Z - debug: Timestamp parsed: Thu Jul 13 2017 19:34:59 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:35:59.744Z - debug: Timestamp received: 1499967307000
+2017-07-13T17:35:59.745Z - debug: Timestamp parsed: Thu Jul 13 2017 19:35:07 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:36:06.016Z - debug: Performing tracker checks
+2017-07-13T17:36:06.844Z - debug: Got response: 200
+2017-07-13T17:36:07.367Z - debug: Calling on result
+2017-07-13T17:36:07.922Z - warn: No entry in the database for the server 90.227.198.199:30120
+2017-07-13T17:36:07.992Z - warn: No entry in the database for the server 88.120.184.77:30120
+2017-07-13T17:36:53.127Z - debug: Timestamp received: 1499967353000
+2017-07-13T17:36:53.127Z - debug: Timestamp parsed: Thu Jul 13 2017 19:35:53 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:37:06.029Z - debug: Performing tracker checks
+2017-07-13T17:37:07.123Z - debug: Got response: 200
+2017-07-13T17:37:08.754Z - debug: Calling on result
+2017-07-13T17:37:27.161Z - debug: Timestamp received: 1499967394000
+2017-07-13T17:37:27.162Z - debug: Timestamp parsed: Thu Jul 13 2017 19:36:34 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:37:53.124Z - debug: Timestamp received: 1499967353000
+2017-07-13T17:37:53.126Z - debug: Timestamp parsed: Thu Jul 13 2017 19:35:53 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:38:06.042Z - debug: Performing tracker checks
+2017-07-13T17:38:06.878Z - debug: Got response: 200
+2017-07-13T17:38:07.389Z - debug: Calling on result
+2017-07-13T17:38:27.165Z - debug: Timestamp received: 1499967455000
+2017-07-13T17:38:27.166Z - debug: Timestamp parsed: Thu Jul 13 2017 19:37:35 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:38:32.139Z - debug: Timestamp received: 1499967452000
+2017-07-13T17:38:32.140Z - debug: Timestamp parsed: Thu Jul 13 2017 19:37:32 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:38:53.155Z - debug: Timestamp received: 1499967353000
+2017-07-13T17:38:53.156Z - debug: Timestamp parsed: Thu Jul 13 2017 19:35:53 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:39:06.057Z - debug: Performing tracker checks
+2017-07-13T17:39:07.040Z - debug: Got response: 200
+2017-07-13T17:39:08.082Z - debug: Calling on result
+2017-07-13T17:39:27.165Z - debug: Timestamp received: 1499967515000
+2017-07-13T17:39:27.167Z - debug: Timestamp parsed: Thu Jul 13 2017 19:38:35 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:39:32.872Z - debug: Timestamp received: 1499967512000
+2017-07-13T17:39:32.874Z - debug: Timestamp parsed: Thu Jul 13 2017 19:38:32 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:39:53.134Z - debug: Timestamp received: 1499967353000
+2017-07-13T17:39:53.135Z - debug: Timestamp parsed: Thu Jul 13 2017 19:35:53 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:40:06.071Z - debug: Performing tracker checks
+2017-07-13T17:40:06.958Z - debug: Got response: 200
+2017-07-13T17:40:08.374Z - debug: Calling on result
+2017-07-13T17:40:32.869Z - debug: Timestamp received: 1499967573000
+2017-07-13T17:40:32.870Z - debug: Timestamp parsed: Thu Jul 13 2017 19:39:33 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:40:53.133Z - debug: Timestamp received: 1499967353000
+2017-07-13T17:40:53.134Z - debug: Timestamp parsed: Thu Jul 13 2017 19:35:53 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:41:05.167Z - debug: Timestamp received: 1499967612000
+2017-07-13T17:41:05.168Z - debug: Timestamp parsed: Thu Jul 13 2017 19:40:12 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:41:06.083Z - debug: Performing tracker checks
+2017-07-13T17:41:08.201Z - debug: Got response: 200
+2017-07-13T17:41:08.735Z - debug: Calling on result
+2017-07-13T17:41:32.879Z - debug: Timestamp received: 1499967633000
+2017-07-13T17:41:32.879Z - debug: Timestamp parsed: Thu Jul 13 2017 19:40:33 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:41:53.135Z - debug: Timestamp received: 1499967353000
+2017-07-13T17:41:53.136Z - debug: Timestamp parsed: Thu Jul 13 2017 19:35:53 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:42:05.167Z - debug: Timestamp received: 1499967673000
+2017-07-13T17:42:05.168Z - debug: Timestamp parsed: Thu Jul 13 2017 19:41:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:42:06.098Z - debug: Performing tracker checks
+2017-07-13T17:42:06.762Z - debug: Got response: 200
+2017-07-13T17:42:08.277Z - debug: Calling on result
+2017-07-13T17:42:08.831Z - warn: No entry in the database for the server 23.254.42.194:30120
+2017-07-13T17:42:09.174Z - warn: No entry in the database for the server 173.254.251.103:30120
+2017-07-13T17:42:32.875Z - debug: Timestamp received: 1499967693000
+2017-07-13T17:42:32.877Z - debug: Timestamp parsed: Thu Jul 13 2017 19:41:33 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:42:53.127Z - debug: Timestamp received: 1499967353000
+2017-07-13T17:42:53.128Z - debug: Timestamp parsed: Thu Jul 13 2017 19:35:53 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:43:05.163Z - debug: Timestamp received: 1499967733000
+2017-07-13T17:43:05.164Z - debug: Timestamp parsed: Thu Jul 13 2017 19:42:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:43:06.110Z - debug: Performing tracker checks
+2017-07-13T17:43:08.199Z - debug: Got response: 200
+2017-07-13T17:43:10.652Z - debug: Calling on result
+2017-07-13T17:43:11.328Z - warn: No entry in the database for the server 94.23.214.221:30120
+2017-07-13T17:43:32.874Z - debug: Timestamp received: 1499967753000
+2017-07-13T17:43:32.876Z - debug: Timestamp parsed: Thu Jul 13 2017 19:42:33 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:43:53.137Z - debug: Timestamp received: 1499967353000
+2017-07-13T17:43:53.138Z - debug: Timestamp parsed: Thu Jul 13 2017 19:35:53 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:44:05.167Z - debug: Timestamp received: 1499967793000
+2017-07-13T17:44:05.168Z - debug: Timestamp parsed: Thu Jul 13 2017 19:43:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:44:06.125Z - debug: Performing tracker checks
+2017-07-13T17:44:07.545Z - debug: Got response: 200
+2017-07-13T17:44:08.010Z - debug: Calling on result
+2017-07-13T17:44:32.878Z - debug: Timestamp received: 1499967813000
+2017-07-13T17:44:32.880Z - debug: Timestamp parsed: Thu Jul 13 2017 19:43:33 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:44:53.131Z - debug: Timestamp received: 1499967353000
+2017-07-13T17:44:53.132Z - debug: Timestamp parsed: Thu Jul 13 2017 19:35:53 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:45:05.167Z - debug: Timestamp received: 1499967853000
+2017-07-13T17:45:05.168Z - debug: Timestamp parsed: Thu Jul 13 2017 19:44:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:45:06.136Z - debug: Performing tracker checks
+2017-07-13T17:45:07.855Z - debug: Got response: 200
+2017-07-13T17:45:09.085Z - debug: Calling on result
+2017-07-13T17:45:32.875Z - debug: Timestamp received: 1499967873000
+2017-07-13T17:45:32.876Z - debug: Timestamp parsed: Thu Jul 13 2017 19:44:33 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:46:05.166Z - debug: Timestamp received: 1499967913000
+2017-07-13T17:46:05.167Z - debug: Timestamp parsed: Thu Jul 13 2017 19:45:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:46:06.152Z - debug: Performing tracker checks
+2017-07-13T17:46:07.733Z - debug: Got response: 200
+2017-07-13T17:46:08.236Z - debug: Calling on result
+2017-07-13T17:46:08.932Z - warn: No entry in the database for the server 31.151.27.197:30120
+2017-07-13T17:46:12.863Z - debug: Timestamp received: 1499967913000
+2017-07-13T17:46:12.864Z - debug: Timestamp parsed: Thu Jul 13 2017 19:45:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:46:32.874Z - debug: Timestamp received: 1499967933000
+2017-07-13T17:46:32.875Z - debug: Timestamp parsed: Thu Jul 13 2017 19:45:33 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:47:05.172Z - debug: Timestamp received: 1499967973000
+2017-07-13T17:47:05.173Z - debug: Timestamp parsed: Thu Jul 13 2017 19:46:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:47:06.165Z - debug: Performing tracker checks
+2017-07-13T17:47:07.344Z - debug: Got response: 200
+2017-07-13T17:47:08.108Z - debug: Calling on result
+2017-07-13T17:47:12.858Z - debug: Timestamp received: 1499967975000
+2017-07-13T17:47:12.859Z - debug: Timestamp parsed: Thu Jul 13 2017 19:46:15 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:48:05.174Z - debug: Timestamp received: 1499968033000
+2017-07-13T17:48:05.175Z - debug: Timestamp parsed: Thu Jul 13 2017 19:47:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:48:06.178Z - debug: Performing tracker checks
+2017-07-13T17:48:06.983Z - debug: Got response: 200
+2017-07-13T17:48:08.281Z - debug: Calling on result
+2017-07-13T17:48:12.862Z - debug: Timestamp received: 1499968037000
+2017-07-13T17:48:12.863Z - debug: Timestamp parsed: Thu Jul 13 2017 19:47:17 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:48:32.534Z - debug: Timestamp received: 1499968052000
+2017-07-13T17:48:32.536Z - debug: Timestamp parsed: Thu Jul 13 2017 19:47:32 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:49:05.175Z - debug: Timestamp received: 1499968093000
+2017-07-13T17:49:05.177Z - debug: Timestamp parsed: Thu Jul 13 2017 19:48:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:49:06.192Z - debug: Performing tracker checks
+2017-07-13T17:49:07.777Z - debug: Got response: 200
+2017-07-13T17:49:08.228Z - debug: Calling on result
+2017-07-13T17:49:08.921Z - warn: No entry in the database for the server 79.92.70.135:30210
+2017-07-13T17:49:09.057Z - warn: No entry in the database for the server 164.132.194.202:30120
+2017-07-13T17:50:05.174Z - debug: Timestamp received: 1499968153000
+2017-07-13T17:50:05.176Z - debug: Timestamp parsed: Thu Jul 13 2017 19:49:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:50:06.205Z - debug: Performing tracker checks
+2017-07-13T17:50:08.186Z - debug: Got response: 200
+2017-07-13T17:50:08.630Z - debug: Calling on result
+2017-07-13T17:50:09.090Z - warn: No entry in the database for the server 188.165.252.197:32138
+2017-07-13T17:50:17.879Z - debug: Timestamp received: 1499968157000
+2017-07-13T17:50:17.879Z - debug: Timestamp parsed: Thu Jul 13 2017 19:49:17 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:50:29.918Z - debug: Timestamp received: 1499968178000
+2017-07-13T17:50:29.919Z - debug: Timestamp parsed: Thu Jul 13 2017 19:49:38 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:51:05.177Z - debug: Timestamp received: 1499968213000
+2017-07-13T17:51:05.178Z - debug: Timestamp parsed: Thu Jul 13 2017 19:50:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:51:06.220Z - debug: Performing tracker checks
+2017-07-13T17:51:07.276Z - debug: Got response: 200
+2017-07-13T17:51:07.730Z - debug: Calling on result
+2017-07-13T17:51:29.917Z - debug: Timestamp received: 1499968238000
+2017-07-13T17:51:29.918Z - debug: Timestamp parsed: Thu Jul 13 2017 19:50:38 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:51:52.877Z - debug: Timestamp received: 1499968252000
+2017-07-13T17:51:52.878Z - debug: Timestamp parsed: Thu Jul 13 2017 19:50:52 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:52:06.233Z - debug: Performing tracker checks
+2017-07-13T17:52:07.557Z - debug: Got response: 200
+2017-07-13T17:52:08.123Z - debug: Calling on result
+2017-07-13T17:52:09.304Z - warn: No entry in the database for the server 66.190.11.153:30120
+2017-07-13T17:53:06.247Z - debug: Performing tracker checks
+2017-07-13T17:53:07.046Z - debug: Got response: 200
+2017-07-13T17:53:07.632Z - debug: Calling on result
+2017-07-13T17:53:08.519Z - warn: No entry in the database for the server 31.11.140.179:30120
+2017-07-13T17:54:06.260Z - debug: Performing tracker checks
+2017-07-13T17:54:09.776Z - debug: Got response: 200
+2017-07-13T17:54:10.560Z - debug: Calling on result
+2017-07-13T17:54:13.833Z - debug: Timestamp received: 1499968394000
+2017-07-13T17:54:13.834Z - debug: Timestamp parsed: Thu Jul 13 2017 19:53:14 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:55:06.273Z - debug: Performing tracker checks
+2017-07-13T17:55:09.404Z - debug: Got response: 200
+2017-07-13T17:55:10.079Z - debug: Calling on result
+2017-07-13T17:55:11.185Z - warn: No entry in the database for the server 5.196.14.79:30110
+2017-07-13T17:55:37.736Z - debug: Timestamp received: 1499968478000
+2017-07-13T17:55:37.737Z - debug: Timestamp parsed: Thu Jul 13 2017 19:54:38 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:56:06.287Z - debug: Performing tracker checks
+2017-07-13T17:56:07.365Z - debug: Got response: 200
+2017-07-13T17:56:08.000Z - debug: Calling on result
+2017-07-13T17:56:08.820Z - warn: No entry in the database for the server 188.165.179.41:30120
+2017-07-13T17:56:08.824Z - warn: No entry in the database for the server 45.63.17.240:30120
+2017-07-13T17:56:08.915Z - warn: No entry in the database for the server 91.134.252.134:30120
+2017-07-13T17:57:06.300Z - debug: Performing tracker checks
+2017-07-13T17:57:07.022Z - debug: Got response: 200
+2017-07-13T17:57:07.929Z - debug: Calling on result
+2017-07-13T17:57:12.351Z - debug: Timestamp received: 1499968572000
+2017-07-13T17:57:12.356Z - debug: Timestamp parsed: Thu Jul 13 2017 19:56:12 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:58:06.314Z - debug: Performing tracker checks
+2017-07-13T17:58:07.266Z - debug: Got response: 200
+2017-07-13T17:58:07.757Z - debug: Calling on result
+2017-07-13T17:58:12.888Z - debug: Timestamp received: 1499968632000
+2017-07-13T17:58:12.890Z - debug: Timestamp parsed: Thu Jul 13 2017 19:57:12 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T17:59:06.329Z - debug: Performing tracker checks
+2017-07-13T17:59:07.501Z - debug: Got response: 200
+2017-07-13T17:59:07.950Z - debug: Calling on result
+2017-07-13T17:59:12.890Z - debug: Timestamp received: 1499968693000
+2017-07-13T17:59:12.892Z - debug: Timestamp parsed: Thu Jul 13 2017 19:58:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T18:00:06.343Z - debug: Performing tracker checks
+2017-07-13T18:00:06.902Z - debug: Got response: 200
+2017-07-13T18:00:07.355Z - debug: Calling on result
+2017-07-13T18:00:08.122Z - warn: No entry in the database for the server 94.73.238.98:30121
+2017-07-13T18:00:12.887Z - debug: Timestamp received: 1499968753000
+2017-07-13T18:00:12.888Z - debug: Timestamp parsed: Thu Jul 13 2017 19:59:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T18:01:06.356Z - debug: Performing tracker checks
+2017-07-13T18:01:06.915Z - debug: Got response: 200
+2017-07-13T18:01:07.360Z - debug: Calling on result
+2017-07-13T18:01:08.110Z - warn: No entry in the database for the server 79.92.168.46:30120
+2017-07-13T18:01:12.892Z - debug: Timestamp received: 1499968813000
+2017-07-13T18:01:12.893Z - debug: Timestamp parsed: Thu Jul 13 2017 20:00:13 GMT+0200 (Paris, Madrid (heure d’été))
+2017-07-13T18:02:06.370Z - debug: Performing tracker checks
+2017-07-13T18:02:07.550Z - debug: Got response: 200
+2017-07-13T18:02:08.000Z - debug: Calling on result
+2017-07-13T18:02:08.590Z - warn: No entry in the database for the server 92.4.198.201:30120
+2017-07-13T18:02:12.897Z - debug: Timestamp received: 1499968873000
+2017-07-13T18:02:12.898Z - debug: Timestamp parsed: Thu Jul 13 2017 20:01:13 GMT+0200 (Paris, Madrid (heure d’été))
