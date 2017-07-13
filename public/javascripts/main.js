@@ -3,6 +3,25 @@
  */
 
 
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": true,
+  "positionClass": "toast-bottom-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
+
 function getCurrentUnixTimestamp(){
     return Math.round((new Date()).getTime() / 1000);
 }
@@ -54,7 +73,8 @@ $.getJSON('/api/servers/' + fullIp, function (data) {
 
                     var series = this.series[0];
                     setInterval(function () {
-                        $.getJSON('/api/servers/' + fullIp + "?from="+lastCallDate, function (ajaxData) {
+                        $.getJSON('/api/servers/' + fullIp + "?from="+lastCallDate)
+                        .done(function (ajaxData) {
 
                             if (!ajaxData || ajaxData.length == 0){  //if empty array, insert a new point with the same number of players
                                 var lastPoint = series.data[series.data.length-1];
@@ -73,9 +93,12 @@ $.getJSON('/api/servers/' + fullIp, function (data) {
                                 series.addPoint(obj, true, true);
                             });
                             lastCallDate = getCurrentUnixTimestamp();       // memorize to only retrieve the last entries instead of the whole graph
+                        })
+                        .fail(function( jqxhr, textStatus, error ) {
+                          var err = textStatus + ", " + error;
+                          console.log( "Request Failed: " + err );
+                          toastr["error"]("Failed to retrieve data from the server !", "Error !");
                         });
-
-
                     }, 60000);
                 }
             }
