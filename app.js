@@ -7,11 +7,17 @@ var methodOverride = require('method-override'); // simulate DELETE and PUT (exp
 var db = require('./server/db');
 var logger = require('./server/logger');
 var tracker = require('./server/tracker');
-
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var servers = require('./routes/servers');
+
+//set up log directy
+var fs = require('fs');
+var dir = path.join(__dirname, 'logs');
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
 
 var app = express();
 

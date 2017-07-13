@@ -56,10 +56,14 @@ $.getJSON('/api/servers/' + fullIp, function (data) {
                     setInterval(function () {
                         $.getJSON('/api/servers/' + fullIp + "?from="+lastCallDate, function (ajaxData) {
 
-                            if (ajaxData.length == 0){  //if empty array, insert a new point with the same number of players
+                            if (!ajaxData || ajaxData.length == 0){  //if empty array, insert a new point with the same number of players
                                 var lastPoint = series.data[series.data.length-1];
-                                lastPoint[0] = Date.now();
-                                series.addPoint(lastPoint);
+
+                                var obj = [];
+                                obj.push(Date.now());
+                                obj.push(lastPoint.y);
+                                
+                                series.addPoint(obj);
                             }
                             ajaxData.forEach(function (ajaxElem) {
 
