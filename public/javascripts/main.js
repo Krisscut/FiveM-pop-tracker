@@ -136,6 +136,13 @@ $.getJSON('/api/servers/' + fullIp, function (data) {
             text: document.ontouchstart === undefined ?
                 'Refreshed every minutes' : 'Pinch the chart to zoom in'
         },
+        yAxis: {
+                min: 0,
+                allowDecimals: false,
+                title: {
+                    text: 'Players Connected'
+                }
+        },
         plotOptions: {
             line: {
                 fillColor: {
