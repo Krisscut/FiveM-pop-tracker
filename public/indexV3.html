@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/semantic.min.css">
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://semantic-ui.com/dist/semantic.min.js"></script>
+
+<div class="main ui container">
+    <div class="ui inverted dimmer">
+        <div class="ui active large text loader">Loading</div></div>
+    </div>
+    <div id="container" class="ui segment" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+
+<script>
+
+    function getCurrentUnixTimestamp(){
+        return Math.round((new Date()).getTime() / 1000);
+    }
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    var fullIp = "149.56.243.53:30121";
+    //46.105.42.129:30120 for club V
+    var paramIP = getParameterByName("ip");
+
+    if (paramIP){
+        fullIp = paramIP;
+    }
+
+    $.getJSON('/api/servers/' + fullIp, function (data) {
+        var lastCallDate = getCurrentUnixTimestamp();
+        var result = [];
+
+        data.forEach(function (elem) {
+
+            var obj = [];
+            obj.push(new Date(elem['date']).getTime());
+            obj.push(elem['playerNumber']);
+
+            result.push(obj);
+        });
+
+        Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
+
+        // Create the chart
+        Highcharts.stockChart('container', {
+            chart: {
+                events: {
+                    load: function () {
+
+                        // set up the updating of the chart each second
+                        var series = this.series[0];
+                        setInterval(function () {
+
+
+                            $.getJSON('/api/servers/' + fullIp + "?from="+lastCallDate, function (ajaxData) {
+                                ajaxData.forEach(function (ajaxElem) {
+
+                                    var obj = [];
+                                    obj.push(new Date(ajaxElem['date']).getTime());
+                                    obj.push(ajaxElem['playerNumber']);
+                                    series.addPoint(obj, true, true);
+                                });
+                                lastCallDate = getCurrentUnixTimestamp();
+                            });
+
+
+                        }, 60000);
+                    }
+                }
+            },
+
+            rangeSelector: {
+                buttons: [{
+                    count: 5,
+                    type: 'minute',
+                    text: '5M'
+                }, {
+                    count: 1,
+                    type: 'hour',
+                    text: '1H'
+                }, {
+                    count: 1,
+                    type: 'day',
+                    text: '1d'
+                },{
+                    count: 1,
+                    type: 'month',
+                    text: '1m'
+                }, {
+                    type: 'all',
+                    text: 'All'
+                }],
+                inputEnabled: true,
+                selected: 0
+            },
+
+            title: {
+                text: 'Number of players connected for the server ' + fullIp
+            },
+            subtitle: {
+                text: document.ontouchstart === undefined ?
+                        'Refreshed every minutes' : 'Pinch the chart to zoom in'
+            },
+
+            exporting: {
+                enabled: false
+            },
+            series: [{
+                name: 'Players connected',
+                data: result
+            }]
+        });
+    });
+</script>
+
+
+<script src="//code.highcharts.com/themes/dark-unica.js"></script>
+<script src="//code.highcharts.com/themes/sand-signika.js"></script>
+
+</body>
+</html>

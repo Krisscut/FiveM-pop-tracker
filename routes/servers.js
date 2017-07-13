@@ -4,6 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
+var logger = require('../server/logger');
 
 var model = require('../server/model');
 
@@ -54,14 +55,16 @@ router.get('/:server', function(req, res, next) {
     var filterParam = {};
     if (req.query.from){
         // TODO : check that the input is an integer
-        filterParam['$gte'] = new Date(1000*req.query.from);        // to get ms
+        logger.debug("Timestamp received: " + req.query.from * 1000);
+        filterParam['$gte'] = new Date(req.query.from * 1000);        // to get ms
+        logger.debug("Timestamp parsed: " + new Date(req.query.from * 1000));
     } else {
         filterParam['$gte'] = 0;    //from the beginning
     }
 
     if (req.query.to){
         // TODO : check that the input is an integer
-        filterParam['$lt'] = new Date(1000*req.query.to);           // to get ms
+        filterParam['$lt'] = new Date(req.query.to * 1000);           // to get ms
     } else {
         filterParam['$lt'] = Date.now();    //until now
     }

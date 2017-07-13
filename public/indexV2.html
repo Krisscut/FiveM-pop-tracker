@@ -33,7 +33,6 @@
     }
 
     $.getJSON('/api/servers/' + fullIp, function (data) {
-
         var result = [];
 
         data.forEach(function (elem) {
@@ -47,7 +46,23 @@
 
         Highcharts.chart('container', {
             chart: {
-                zoomType: 'x'
+                zoomType: 'x',
+                type: 'spline',
+                animation: Highcharts.svg, // don't animate in old IE
+                marginRight: 10,
+                events: {
+                    load: function () {
+
+                        // set up the updating of the chart each second
+                        /*var series = this.series[0];
+                        setInterval(function () {
+                            var x = (new Date()).getTime(), // current time
+                                    y = Math.random()*100;
+                            series.addPoint([x, y], true, true);
+                        }, 1000);
+                        */
+                    }
+                }
             },
             title: {
                 text: 'Number of players connected for the server ' + fullIp
@@ -68,6 +83,9 @@
             },
             legend: {
                 enabled: false
+            },
+            exporting: {
+                enabled: true
             },
             plotOptions: {
                 area: {
