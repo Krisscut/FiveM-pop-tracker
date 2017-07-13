@@ -12,12 +12,129 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://semantic-ui.com/dist/semantic.min.js"></script>
 
-<div class="main ui container">
-    <div class="ui inverted dimmer">
-        <div class="ui active large text loader">Loading</div></div>
-    </div>
-    <div id="container" class="ui segment" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div class="ui left demo vertical inverted sidebar labeled icon menu">
+    <a class="item">
+        <i class="home icon"></i>
+        Home
+    </a>
+    <a class="item">
+        <i class="block layout icon"></i>
+        Topics
+    </a>
+    <a class="item">
+        <i class="smile icon"></i>
+        Friends
+    </a>
 </div>
+<div class="pusher">
+
+    <div class="ui fixed inverted menu">
+        <div class="item">
+            <img src="/images/logo.png">
+        </div>
+        <a class="item">Features</a>
+        <a class="item">Testimonials</a>
+        <a class="item">Sign-in</a>
+    </div>
+
+    <div class="ui main text container">
+        <h1 class="ui header">Five-M-pop-Tracker</h1>
+        <p>A basic website whichs track the number of players connected on the various five M servers.</p>
+
+        <div class="ui info message">
+            <i class="close icon"></i>
+            <div class="header">
+                Application in development
+            </div>
+            <ul class="list">
+                <li>Not yet stable.</li>
+                <li>You may encounter some bugs.</li>
+                <li>The data may be wipped out.</li>
+            </ul>
+        </div>
+        <div id="loading" class="ui icon message transition">
+            <i class="notched circle loading icon"></i>
+            <div class="content">
+                <div class="header">
+                    Just one second
+                </div>
+                <p>We're fetching that content for you.</p>
+            </div>
+        </div>
+
+        <div class="ui segments">
+            <div class="ui segment">
+                <div class="ui category search">
+                    <div class="ui icon input" data-tooltip="Search by ip or server name" data-position="left center">
+                        <input class="prompt" type="text" placeholder="Search for a server">
+                        <i class="search icon"></i>
+                    </div>
+                    <div class="results"></div>
+                </div>
+            </div>
+
+            <div id="container" class="ui red segment" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        </div>
+    </div>
+
+    <div class="ui inverted vertical footer segment">
+        <div class="ui center aligned container">
+            <div class="ui stackable inverted divided grid">
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Group 1</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Link One</a>
+                        <a href="#" class="item">Link Two</a>
+                        <a href="#" class="item">Link Three</a>
+                        <a href="#" class="item">Link Four</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Group 2</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Link One</a>
+                        <a href="#" class="item">Link Two</a>
+                        <a href="#" class="item">Link Three</a>
+                        <a href="#" class="item">Link Four</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Group 3</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Link One</a>
+                        <a href="#" class="item">Link Two</a>
+                        <a href="#" class="item">Link Three</a>
+                        <a href="#" class="item">Link Four</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header">Footer Header</h4>
+                    <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <img src="assets/images/logo.png" class="ui centered mini image">
+            <div class="ui horizontal inverted small divided link list">
+                <a class="item" href="#">Site Map</a>
+                <a class="item" href="#">Contact Us</a>
+                <a class="item" href="#">Terms and Conditions</a>
+                <a class="item" href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.sidebar')
+            .sidebar('show')
+    ;
+    $('.ui.search')
+            .search({
+                source: content
+            })
+    ;
+
+</script>
 
 <script>
 
@@ -67,13 +184,18 @@
             chart: {
                 events: {
                     load: function () {
-
                         // set up the updating of the chart each second
+                        $('#loading').transition('slide left')//.addClass("hidden");
+
                         var series = this.series[0];
                         setInterval(function () {
-
-
                             $.getJSON('/api/servers/' + fullIp + "?from="+lastCallDate, function (ajaxData) {
+
+                                if (ajaxData.length == 0){  //if empty array, insert a new point with the same number of players
+                                    var lastPoint = series.data[series.data.length-1];
+                                    lastPoint[0] = Date.now();
+                                    series.addPoint(lastPoint);
+                                }
                                 ajaxData.forEach(function (ajaxElem) {
 
                                     var obj = [];
@@ -81,7 +203,7 @@
                                     obj.push(ajaxElem['playerNumber']);
                                     series.addPoint(obj, true, true);
                                 });
-                                lastCallDate = getCurrentUnixTimestamp();
+                                lastCallDate = getCurrentUnixTimestamp();       // memorize to only retrieve the last entries instead of the whole graph
                             });
 
 
@@ -104,15 +226,15 @@
                     type: 'day',
                     text: '1d'
                 },{
-                    count: 1,
-                    type: 'month',
-                    text: '1m'
+                    count: 7,
+                    type: 'day',
+                    text: '1w'
                 }, {
                     type: 'all',
                     text: 'All'
                 }],
                 inputEnabled: true,
-                selected: 0
+                selected: 1
             },
 
             title: {
@@ -122,11 +244,37 @@
                 text: document.ontouchstart === undefined ?
                         'Refreshed every minutes' : 'Pinch the chart to zoom in'
             },
-
+            plotOptions: {
+                line: {
+                    fillColor: {
+                        linearGradient: {
+                            x1: 0,
+                            y1: 0,
+                            x2: 0,
+                            y2: 1
+                        },
+                        stops: [
+                            [0, Highcharts.getOptions().colors[0]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    marker: {
+                        radius: 2
+                    },
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
             exporting: {
                 enabled: false
             },
             series: [{
+                type: 'line',
                 name: 'Players connected',
                 data: result
             }]
