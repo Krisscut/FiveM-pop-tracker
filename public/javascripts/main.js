@@ -36,7 +36,7 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-var fullIp = "149.56.243.53:30121";
+var fullIp = "46.105.42.129:30120";
 //46.105.42.129:30120 for club V
 var paramIP = getParameterByName("ip");
 

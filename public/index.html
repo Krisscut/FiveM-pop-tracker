@@ -1,103 +1,156 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <script type="text/javascript">
-
-        var fullIp = "149.56.243.53:30121";
-
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                    results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
-
-        //46.105.42.129:30120 for club V
-        var paramIP = getParameterByName("ip");
-
-        if (paramIP){
-            fullIp = paramIP;
-        }
-
-        function renderGraph (data){
-            var chart = new CanvasJS.Chart("chartContainer",
-                    {
-                        zoomEnabled: true,
-
-                        title:{
-                            text: "Evolution of the player population for the server " + fullIp
-                        },
-
-                        data: [
-                            {
-                                type: "area",
-                                xValueType: "dateTime",
-                                dataPoints: data
-                            }
-                        ]
-                    });
-
-            chart.render();
-        }
-
-        window.onload = function () {
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "/api/servers/" + fullIp, true);
-            xhr.onload = function (e) {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        var result = JSON.parse(xhr.responseText);
-
-                        var data = [];
-
-                        result.forEach(function(elem){
-
-                            var obj = {};
-                            obj['x'] = new Date(elem['date']).getTime();
-                            obj['y'] = elem['playerNumber'];
-
-                            data.push(obj);
-                        });
-
-                        renderGraph(data);
-
-/*
-                        [{ x: 1088620200000, y :71},
-                        { x: 1104517800000, y : 55 },
-                        { x: 1112293800000, y:  50 },
-                        { x: 1136053800000, y : 65 },
-                        { x: 1157049000000, y : 95 },
-                        { x: 1162319400000, y : 68 },
-                        { x: 1180636200000, y : 28 },
-                        { x: 1193855400000, y : 34 },
-                        { x: 1209580200000, y : 14 },
-                        { x: 1230748200000, y : 34 },
-                        { x: 1241116200000, y : 44 },
-                        { x: 1262284200000, y : 84 },
-                        { x: 1272652200000, y : 4  },
-                        { x: 1291141800000, y : 44 },
-                        { x: 1304188200000, y : 11 }]*/
-
-
-                    } else {
-                        console.error(xhr.statusText);
-                    }
-                }
-            };
-            xhr.onerror = function (e) {
-                console.error(xhr.statusText);
-            };
-            xhr.send(null);
-        }
-    </script>
-    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="
+    http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 </head>
 <body>
-<div id="chartContainer" style="height: 300px; width: 100%;">
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://semantic-ui.com/dist/semantic.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+<div class="ui left demo vertical inverted sidebar labeled icon menu">
+    <a class="item">
+        <i class="home icon"></i>
+        Home
+    </a>
+    <a class="item">
+        <i class="block layout icon"></i>
+        Topics
+    </a>
+    <a class="item">
+        <i class="smile icon"></i>
+        Friends
+    </a>
 </div>
+<div class="pusher">
+
+    <div class="ui fixed inverted menu">
+        <div id="menuLogo" class="item image maxi">
+            <img src="/images/logo.png">
+        </div>
+        <a href="#" class="item">Home</a>
+        <a href="https://servers.fivem.net/" class="item">Server list</a>
+        <a href="/about.html" class="item">About</a>
+    </div>
+
+
+    <div id = "mainContainer" class="ui main text container">
+        <h1 class="ui header">Five-M-pop-Tracker</h1>
+        <p>A basic website whichs track the number of players connected on the various five M servers.</p>
+
+        <div class="ui info message">
+            <!--<i class="close icon"></i>-->
+            <div class="header">
+                Application in development
+            </div>
+            <ul class="list">
+                <li>Not yet stable.</li>
+                <li>You may encounter some bugs.</li>
+                <li>The data may be wipped out.</li>
+            </ul>
+        </div>
+        <div id="loading" class="ui icon message transition">
+            <i class="notched circle loading icon"></i>
+            <div class="content">
+                <div class="header">
+                    Just one second
+                </div>
+                <p>We're fetching that content for you.</p>
+            </div>
+        </div>
+
+        <div class="ui segments">
+            <div class="ui segment">
+                <div id = "searchField" class="ui category search">
+                    <div class="ui icon input" data-tooltip="Search by ip or server name" data-position="left center">
+                        <input class="prompt" type="text" placeholder="Search for a server">
+                        <i class="search icon"></i>
+                    </div>
+                    <div class="results"></div>
+                </div>
+            </div>
+
+            <div id="container" class="ui red segment" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        </div>
+    </div>
+
+    <div class="ui inverted vertical footer segment">
+        <div class="ui center aligned container">
+            <div class="ui stackable inverted divided grid">
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Five M</h4>
+                    <div class="ui inverted link list">
+                        <a href="https://servers.fivem.net/" class="item">Data source</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">ClubV RP</h4>
+                    <div class="ui inverted link list">
+                        <a href="http://www.clubv-rp.fr/" class="item">Website</a>
+                        <a href="http://www.clubv-rp.fr/forum/" class="item">Forum</a>
+                        <a href="http://discord.clubv-rp.fr/" class="item">Discord</a>
+                        <a href="http://www.clubv-rp.fr/#contact" class="item">Contact</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Application</h4>
+                    <div class="ui inverted link list">
+                        <a href="https://github.com/Krisscut/FiveM-pop-tracker" class="item">Github</a>
+                        <a href="https://github.com/Krisscut/FiveM-pop-tracker/issues" class="item">Report an issue</a>
+                        <a href="https://github.com/Krisscut/FiveM-pop-tracker/wiki" class="item">Wiki</a>
+                        <a href="https://krisscut.github.io/FiveM-pop-tracker/." class="item">Download link</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header">FiveM-pop-tracker</h4>
+                    <p>A basic website whichs track the number of players connected on the various five M servers.</p>
+                    <p>Data extracted from the <a href="https://servers.fivem.net/">FiveM' serverlist</a>.</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <img src="/images/logo.png" class="ui centered image">
+            <div class="ui horizontal inverted small divided link list">
+                <a class="item" href="#">Site Map</a>
+                <a class="item" href="#">Contact Us</a>
+                <a class="item" href="#">Terms and Conditions</a>
+                <a class="item" href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#menuLogo').click(function(){
+        $('.sidebar')
+                .sidebar('show')
+        ;
+    });
+/*
+    $('.ui.search')
+            .search({
+                source: content
+            })
+    ;
+    */
+    $('#searchField').click(function(){
+        toastr["info"]("Not implemented Yet ! You can altough use the 'ip' parameter in the url to get the data of a specific server :  index.html?ip=46.105.42.129:30120", "Work in progress");
+    });
+    
+
+</script>
+
+<script src="/javascripts/main.js"></script>
+<script src="//code.highcharts.com/themes/dark-unica.js"></script>
+<script src="//code.highcharts.com/themes/sand-signika.js"></script>
+
 </body>
 </html>
