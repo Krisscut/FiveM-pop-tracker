@@ -144,7 +144,7 @@ $.getJSON('/api/servers/' + fullIp, function (data) {
                 }
         },
         plotOptions: {
-            spline: {
+            line: {
                 fillColor: {
                     linearGradient: {
                         x1: 0,
@@ -173,7 +173,7 @@ $.getJSON('/api/servers/' + fullIp, function (data) {
             enabled: false
         },
         series: [{
-            type: 'spline',
+            type: 'line',
             name: 'Players connected',
             data: result
         }]
