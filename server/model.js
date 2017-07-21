@@ -10,19 +10,22 @@ var serverInfoSchema = mongoose.Schema({
     name : String,
     gameType : String,
     map : String,
-    playerNumber : Number,
     maxPlayer : Number,
     ip : String,
-    date : { type: Date, default: Date.now }
+    data : [
+        {
+            date : { type: Date, default: Date.now },
+            players :  Number
+        }
+    ]
 });
 serverInfoSchema.methods.display = function(){
     logger.info('Display data for server' + this.name + ":\n"
         + 'Gametype:' + this.gameType  +
         "\nMap: " +  this.map  +
-        "\nPlayerNumber: " +  this.playerNumber  +
         "\nmaxPlayer: " +  this.maxPlayer  +
         "\nip: " +  this.ip +
-        "\ndate: " +  this.date)
+        "\ndata: " +  this.data)
 }
 model.ServerInfo = mongoose.model('ServerInfo', serverInfoSchema);
 

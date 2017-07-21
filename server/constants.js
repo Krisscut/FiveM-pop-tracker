@@ -6,8 +6,12 @@ var constants = {};
 
 constants.TARGET_URL = 'servers.fivem.net';
 constants.TARGET_PORT = '443';
-//constants.TARGET_FULL_IP = '46.105.42.129:30120';
-constants.TARGET_FULL_IP = '149.56.243.53:30121';
 constants.LOG_LEVEL = 'debug';
+
+constants.FILTER = false;
+constants.TARGETS = [
+    "46.105.42.129:30120",
+    "66.70.180.161:30120"
+];
 
 module.exports = constants;

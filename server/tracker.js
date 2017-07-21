@@ -74,13 +74,13 @@ function onDataReceived(statusCode, body){
             serverInfo["ip"] = serverContent.eq(4).text();
             serverInfo["date"] = Date.now();
 
-            //if (serverInfo.ip === constants.TARGET_FULL_IP) {
-                //logger.debug("Found targeted server with index " + i + " : " + JSON.stringify(serverInfo));
+            if (constants.FILTER == false || constants.TARGETS.includes(serverInfo["ip"])) {
+                logger.debug("Found targeted server with index " + i + " : " + JSON.stringify(serverInfo));
                 //console.timeEnd("processData");
                 onServerInfoParsed(serverInfo);
                 //targetFound = true;
                 //return false;   // break the loop
-            //}
+            }
         }
     });
     //if (!targetFound) {
@@ -110,19 +110,23 @@ function onServerInfoParsed(serverInfo){
     });
     */
     //server.save();
-    model.ServerInfo.findOne({"ip" : serverInfo.ip}).sort({ field: 'asc', _id: -1 }).limit(1).exec(function(err, dbServerInfo){
+    model.ServerInfo.findOne({"ip" : serverInfo.ip}).select({ "data": { "$slice": -1 }}).exec(function(err, dbServerInfo){
         if(err)
             return logger.error(err);
 
         if (dbServerInfo == null){
-            logger.warn("No entry in the database for the server " +  server.ip);
+            logger.warn("No entry in the database for the server " +  server.ip + " - Added the server to the database");
+            server.data = [];       // empty data
+            server.data.push({date: serverInfo["date"], players: serverInfo["playerNumber"]});
             server.save();
         } else {
             //comparison of the entries in the DB
             //logger.debug("checking with previous entry in the database");
             // if there is an evolution in the number of player online, insert the new document
+            logger.debug("data: " + dbServerInfo.data);
+            logger.debug("id " + dbServerInfo._id);
+            if (dbServerInfo.data.pop()["players"] != serverInfo["playerNumber"]) {
 
-            if (dbServerInfo.playerNumber != server.playerNumber) {
                 // create another point just before the change
                 //var serverPointBefore = new model.ServerInfo (serverInfo);
                 //serverPointBefore.date = serverPointBefore.date.getTime()-1;
@@ -132,7 +136,20 @@ function onServerInfoParsed(serverInfo){
                 //removed at the moment, too ugly !
 
                 //logger.debug("Adding a new entry in the database, " + dbServerInfo.playerNumber + " != " + server.playerNumber );
-                server.save();
+                //server.data.push();
+                //server.save();
+
+                model.ServerInfo.findByIdAndUpdate(
+                        dbServerInfo._id,
+                        {$push: {"data": {date: serverInfo["date"], players: serverInfo["playerNumber"]}}},
+                        {safe: true, upsert: true, new : true},
+                        function(err, model) {
+                            if (err)
+                                console.log(err);
+                        }
+                    );
+            } else {
+                logger.debug("No change in the players connected for the server " + dbServerInfo.ip);
             }
         }
     });

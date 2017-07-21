@@ -51,8 +51,8 @@ $.getJSON('/api/servers/' + fullIp, function (data) {
     data.forEach(function (elem) {
 
         var obj = [];
-        obj.push(new Date(elem['date']).getTime());
-        obj.push(elem['playerNumber']);
+        obj.push(elem['x']);
+        obj.push(elem['y']);
 
         result.push(obj);
     });
@@ -88,8 +88,8 @@ $.getJSON('/api/servers/' + fullIp, function (data) {
                             ajaxData.forEach(function (ajaxElem) {
 
                                 var obj = [];
-                                obj.push(new Date(ajaxElem['date']).getTime());
-                                obj.push(ajaxElem['playerNumber']);
+                                obj.push(ajaxElem['x']);
+                                obj.push(ajaxElem['y']);
                                 series.addPoint(obj, true, true);
                             });
                             lastCallDate = getCurrentUnixTimestamp();       // memorize to only retrieve the last entries instead of the whole graph

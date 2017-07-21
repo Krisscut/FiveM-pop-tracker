@@ -47,40 +47,91 @@ router.get('/', function(req, res, next) {
 
 /* GET all the entries for the given server, between the two dates, and with only the number of players */
 //http://localhost:3000/api/servers/46.105.42.129:30120
+/*
+*
+ http://localhost:3000/api/servers/ avec ça on a la liste de toutes les entrées dans la bdd
+ http://localhost:3000/api/servers/149.56.243.53:30121 tu as seulement les entrées spécifiques à l'ip indiquée
+ http://localhost:3000/api/servers/149.56.243.53:30121?from=1499765300 tu as les entrées à partir du timestamp indiqué.
+ http://localhost:3000/api/servers/149.56.243.53:30121?from=1499765300&to=1499765400 tu as les entrées entre les deux dates
+ http://localhost:3000/api/servers/ avec ça on a la liste de toutes les entrées dans la bdd
+ http://localhost:3000/api/servers/149.56.243.53:30121 tu as seulement les entrées spécifiques à l'ip indiquée
+ Exemple de résultat pour ça :
+ http://localhost:3000/api/servers/149.56.243.53:30121?from=1499765300
+*
+* */
 router.get('/:server', function(req, res, next) {
     var searchParam = {};
     searchParam['ip'] = req.params.server;
 
-    // checks if the from and to parameter are provided
-    var filterParam = {};
     if (req.query.from){
         // TODO : check that the input is an integer
         logger.debug("Timestamp received: " + req.query.from * 1000);
-        filterParam['$gte'] = new Date(req.query.from * 1000);        // to get ms
-        logger.debug("Timestamp parsed: " + new Date(req.query.from * 1000));
+        start = new Date(req.query.from * 1000);        // to get ms
     } else {
-        filterParam['$gte'] = 0;    //from the beginning
+        start = new Date(0);    //from the beginning
     }
 
     if (req.query.to){
         // TODO : check that the input is an integer
-        filterParam['$lt'] = new Date(req.query.to * 1000);           // to get ms
+        end = new Date(req.query.to * 1000);           // to get ms
     } else {
-        filterParam['$lt'] = Date.now();    //until now
+        end = new Date(Date.now());    //until now
     }
 
-    if (filterParam !== {}){
-        searchParam['date'] = filterParam;
-    }
+    logger.debug("Get Server info : server : " + req.params.server);
+    logger.debug("Get Server info : start : " + start);
+    logger.debug("Get Server info : end : " + end);
 
+    model.ServerInfo.aggregate([
+        {
+            "$match": {
+                "ip": req.params.server,
+                "data.date": { "$gte": start, "$lt": end }
+            }
+        },
+        {
+            "$project": {
+                "data": {
+                    "$filter": {
+                        "input": "$data",
+                        "as": "data",
+                        "cond": {
+                            "$and": [
+                                { "$gte": [ "$$data.date", start ] },
+                                { "$lt": [ "$$data.date", end ] }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
 
-    model.ServerInfo.find(searchParam, 'playerNumber date').exec(function(err, serverInfos) {
-
+    ]).exec(function(err, serverInfos) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-        if (err)
+        if (err) {
             res.send(err)
+            logger.debug("error while searching for data : " + err)
+            return;
+        }
+        logger.debug("output find data : " + serverInfos)
+        //TODO : nicely format the output so that i don't take as much place !
 
-        res.json(serverInfos); // return all todos in JSON format
+        // if no result since the last call, don't try
+        var output = [];
+
+        if (serverInfos != null && serverInfos.length != 0) {
+            var result = serverInfos[0];
+            for (var i = 0; i < result["data"].length; i++) {
+                output.push(
+                    {
+                        x : result["data"][i]["date"].getTime(),        //timestamp
+                        y : result["data"][i]["players"]
+                    }
+                );
+            }
+        }
+        logger.debug("output: " + JSON.stringify(output));
+        res.json(output); // return all todos in JSON format
     });
 });
 
@@ -142,6 +193,61 @@ router.delete('/api/todos/:todo_id', function(req, res) {
     });
 });
 */
+
+/**
+ *
+ // checks if the from and to parameter are provided
+ var filterParam = { $elemMatch : {
+        date : {}
+    }};
+ if (req.query.from){
+        // TODO : check that the input is an integer
+        logger.debug("Timestamp received: " + req.query.from * 1000);
+        filterParam["$elemMatch"]["date"]['$gte'] = new Date(req.query.from * 1000);        // to get ms
+        logger.debug("Timestamp parsed: " + new Date(req.query.from * 1000));
+    } else {
+        filterParam["$elemMatch"]["date"]['$gte'] = 0;    //from the beginning
+    }
+
+ if (req.query.to){
+        // TODO : check that the input is an integer
+        filterParam["$elemMatch"]["date"]['$lt'] = new Date(req.query.to * 1000);           // to get ms
+    } else {
+        filterParam["$elemMatch"]["date"]['$lt'] = Date.now();    //until now
+    }
+
+ if (filterParam !== {}){
+        searchParam['data'] = filterParam;
+    }
+ logger.debug(JSON.stringify(searchParam))
+
+ model.ServerInfo.find(searchParam, 'data').exec(function(err, serverInfos) {
+// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err) {
+            res.send(err)
+            logger.debug("error while searching for data : " + err)
+            return;
+        }
+        logger.debug("output find data : " + serverInfos)
+        //TODO : nicely format the output so that i don't take as much place !
+
+        // if no result since the last call, don't try
+        var output = [];
+
+        if (serverInfos.length != 0) {
+            for (var i = 0; i < serverInfos[0]["data"].length; i++) {
+                output.push(
+                    {
+                        x : serverInfos[0]["data"][i]["date"].getTime(),        //timestamp
+                        y : serverInfos[0]["data"][i]["players"]
+                    }
+                );
+            }
+        }
+        logger.debug("output: " + JSON.stringify(output));
+        res.json(output); // return all todos in JSON format
+    });
+ */
 
 
 module.exports = router;
