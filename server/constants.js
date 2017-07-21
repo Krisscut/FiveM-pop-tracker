@@ -13,5 +13,7 @@ constants.TARGETS = [
     "46.105.42.129:30120",
     "66.70.180.161:30120"
 ];
+// in seconds
+constants.REQUEST_INTERVAL = 60;
 
 module.exports = constants;

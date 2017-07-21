@@ -75,7 +75,7 @@ db.connect();
 
 // start tracker refresh interval internally - background task
 tracker();
-setInterval(tracker, 60*1000);
+setInterval(tracker, REQUEST_INTERVAL*1000);
 logger.info('App started !');
 
 module.exports = app;
