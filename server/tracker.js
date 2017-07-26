@@ -75,7 +75,9 @@ function onDataReceived(statusCode, body){
             serverInfo["date"] = Date.now();
 
             if (constants.FILTER == false || constants.TARGETS.includes(serverInfo["ip"])) {
-                logger.debug("Found targeted server with index " + i + " : " + JSON.stringify(serverInfo));
+
+                if (constants.FILTER)
+                    logger.debug("Found targeted server with index " + i + " : " + JSON.stringify(serverInfo));
                 //console.timeEnd("processData");
                 onServerInfoParsed(serverInfo);
                 //targetFound = true;
@@ -123,8 +125,10 @@ function onServerInfoParsed(serverInfo){
             //comparison of the entries in the DB
             //logger.debug("checking with previous entry in the database");
             // if there is an evolution in the number of player online, insert the new document
-            logger.debug("data: " + dbServerInfo.data);
-            logger.debug("id " + dbServerInfo._id);
+            if (constants.FILTER){
+                logger.debug("data: " + dbServerInfo.data);
+                logger.debug("id " + dbServerInfo._id);
+            }
             if (dbServerInfo.data.pop()["players"] != serverInfo["playerNumber"]) {
 
                 // create another point just before the change
@@ -149,7 +153,8 @@ function onServerInfoParsed(serverInfo){
                         }
                     );
             } else {
-                logger.debug("No change in the players connected for the server " + dbServerInfo.ip);
+                if (constants.FILTER)   //only log this is the filter is activated
+                    logger.debug("No change in the players connected for the server " + dbServerInfo.ip);
             }
         }
     });

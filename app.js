@@ -10,6 +10,8 @@ var tracker = require('./server/tracker');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var servers = require('./routes/servers');
+var debug = require('./routes/debug');
+var constants = require('./server/constants');
 
 //set up log directy
 var fs = require('fs');
@@ -36,6 +38,7 @@ app.use(methodOverride());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api/servers', servers);
+app.use('/api/debug', debug);
 
 // DB configuration : atm deactivated
 //mongoose.connect('mongodb://trackerUser:tracker@localhost:27017/tracker');        // database : user @ adress : /password
@@ -75,7 +78,7 @@ db.connect();
 
 // start tracker refresh interval internally - background task
 tracker();
-setInterval(tracker, REQUEST_INTERVAL*1000);
+setInterval(tracker, constants.REQUEST_INTERVAL*1000);
 logger.info('App started !');
 
 module.exports = app;

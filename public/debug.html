@@ -70,17 +70,13 @@
 
         <div class="ui segments">
             <div class="ui segment">
-                <div id = "searchField" class="ui category search">
-                    <div class="ui icon input" data-tooltip="Search by ip or server name" data-position="left center">
-                        <input class="prompt" type="text" placeholder="Search for a server">
-                        <i class="search icon"></i>
-                    </div>
-                    <div class="results"></div>
-                </div>
+                <p>The following graph show the memory consumption of the application in real time</p>
             </div>
 
-            <div id="container" class="ui red segment" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            <div id="container" class="ui red segment" style="min-width: 310px; height: 600px; margin: 0 auto"></div>
+            <div id="containerCPU" class="ui yellow segment" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
         </div>
+
     </div>
 
     <div class="ui inverted vertical footer segment">
@@ -134,21 +130,11 @@
                 .sidebar('show')
         ;
     });
-/*
-    $('.ui.search')
-            .search({
-                source: content
-            })
-    ;
-    */
-    $('#searchField').click(function(){
-        toastr["info"]("Not implemented Yet ! You can altough use the 'ip' parameter in the url to get the data of a specific server :  index.html?ip=46.105.42.129:30120", "Work in progress");
-    });
-    
+
 
 </script>
 
-<script src="/javascripts/main.js"></script>
+<script src="/javascripts/debug.js"></script>
 <script src="//code.highcharts.com/themes/dark-unica.js"></script>
 <script src="//code.highcharts.com/themes/sand-signika.js"></script>
 

@@ -130,7 +130,7 @@ router.get('/:server', function(req, res, next) {
                 );
             }
         }
-        logger.debug("output: " + JSON.stringify(output));
+        logger.debug("number of result output: " + output.length);
         res.json(output); // return all todos in JSON format
     });
 });
