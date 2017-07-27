@@ -44,8 +44,8 @@
 
 
     <div id = "mainContainer" class="ui main text container">
-        <h1 class="ui header">Five-M-pop-Tracker</h1>
-        <p>A basic website whichs track the number of players connected on the various five M servers.</p>
+        <h1 class="ui header">Database View</h1>
+        <p>This view can display some live statistics about the database.</p>
 
         <div class="ui info message">
             <!--<i class="close icon"></i>-->
@@ -70,17 +70,35 @@
 
         <div class="ui segments">
             <div class="ui segment">
-                <div id = "searchField" class="ui category search">
-                    <div class="ui icon input" data-tooltip="Search by ip or server name" data-position="left center">
-                        <input class="prompt" type="text" placeholder="Search for a server">
-                        <i class="search icon"></i>
+                <div class="ui statistics">
+                    <div class="statistic">
+                        <div class="value">
+                            <i class="database icon"></i>22
+                        </div>
+                        <div class="label">
+                            Collection size
+                        </div>
                     </div>
-                    <div class="results"></div>
+                    <div class="statistic ">
+                        <div class="text value">
+                            2200
+                        </div>
+                        <div class="label">
+                            Servers
+                        </div>
+                    </div>
+                    <div class="statistic green">
+                        <div class="value">
+                            <i class="users icon"></i> 500
+                        </div>
+                        <div class="label">
+                            Users online
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div id="container" class="ui red segment" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
         </div>
+
     </div>
 
     <div class="ui inverted vertical footer segment">
@@ -134,21 +152,11 @@
                 .sidebar('show')
         ;
     });
-/*
-    $('.ui.search')
-            .search({
-                source: content
-            })
-    ;
-    */
-    $('#searchField').click(function(){
-        toastr["info"]("Not implemented Yet ! You can altough use the 'ip' parameter in the url to get the data of a specific server :  index.html?ip=46.105.42.129:30120", "Work in progress");
-    });
-    
+
 
 </script>
-
-<script src="/javascripts/main.js"></script>
+<script src="/javascripts/toastr.js"></script>
+<script src="/javascripts/database.js"></script>
 <script src="//code.highcharts.com/themes/dark-unica.js"></script>
 <script src="//code.highcharts.com/themes/sand-signika.js"></script>
 

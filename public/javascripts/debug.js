@@ -1,25 +1,25 @@
 /**
  * Created by STE14179 on 13/07/2017.
  */
+function updateSpecs(){
+
+    $.getJSON('/api/debug/infos/')
+        .done(function (ajaxData) {
+            $('#platform').text(ajaxData['platform']);
+            $('#cpus').text(ajaxData['cpus']);
+            $('#freeMem').text(Math.round(ajaxData['freeMem']) + " Mo");
+            $('#totalMem').text(Math.round(ajaxData['totalMem']) + " Mo");
+            $('#freeMemPercentage').text(Math.round((ajaxData['freeMemPercentage'] * 100) * 100) / 100 + " %");
+            $('#uptime').text(commons.secondsToHms(Math.round(ajaxData['uptime'])));
+            $('#processTime').text(commons.secondsToHms(Math.round(ajaxData['processTime'])));
+            $('#loadAvg').text(ajaxData['loadAvg']);
 
 
-toastr.options = {
-  "closeButton": true,
-  "debug": false,
-  "newestOnTop": true,
-  "progressBar": true,
-  "positionClass": "toast-bottom-right",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "300",
-  "hideDuration": "1000",
-  "timeOut": "5000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
+        })
+        .fail(commons.handleError);
 }
+
+setInterval(updateSpecs, 1000);
 
 
 function getCurrentUnixTimestamp(){
@@ -169,11 +169,15 @@ Highcharts.stockChart('containerCPU', {
     navigator: {
         enabled: false
     },
+    scrollbar: {
+        enabled: false
+    },
     rangeSelector: {
         enabled:false,
         inputEnabled: false
     },
     yAxis: {
+        min: 0,
         title: {
             text: 'CPU %'
         },
@@ -187,13 +191,6 @@ Highcharts.stockChart('containerCPU', {
             width: 1,
             color: '#808080'
         }]
-    },
-    tooltip: {
-        formatter: function () {
-            return '<b>' + this.series.name + '</b><br/>' +
-                Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
-                Highcharts.numberFormat(this.y, 2);
-        }
     },
     legend: {
         enabled: false

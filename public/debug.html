@@ -26,13 +26,12 @@
         <i class="block layout icon"></i>
         Debug
     </a>
-    <a class="item">
-        <i class="smile icon"></i>
-        WIP
+    <a class="item" href="database.html">
+        <i class="database icon"></i>
+        Database
     </a>
 </div>
 <div class="pusher">
-
     <div class="ui fixed inverted menu">
         <div id="menuLogo" class="item image maxi">
             <img src="/images/logo.png">
@@ -41,42 +40,80 @@
         <a href="https://servers.fivem.net/" class="item">Server list</a>
         <a href="/about.html" class="item">About</a>
     </div>
-
-
-    <div id = "mainContainer" class="ui main text container">
-        <h1 class="ui header">Five-M-pop-Tracker</h1>
-        <p>A basic website whichs track the number of players connected on the various five M servers.</p>
-
-        <div class="ui info message">
-            <!--<i class="close icon"></i>-->
-            <div class="header">
-                Application in development
-            </div>
-            <ul class="list">
-                <li>Not yet stable.</li>
-                <li>You may encounter some bugs.</li>
-                <li>The data may be wipped out.</li>
-            </ul>
-        </div>
-        <div id="loading" class="ui icon message transition">
-            <i class="notched circle loading icon"></i>
-            <div class="content">
-                <div class="header">
-                    Just one second
+    <div class="ui grid centered">
+        <div id = "mainContainer" class="ui text ten wide column">
+            <div id="loading" class="ui icon message transition">
+                <i class="notched circle loading icon"></i>
+                <div class="content">
+                    <div class="header">
+                        Just one second
+                    </div>
+                    <p>We're fetching that content for you.</p>
                 </div>
-                <p>We're fetching that content for you.</p>
-            </div>
-        </div>
-
-        <div class="ui segments">
-            <div class="ui segment">
-                <p>The following graph show the memory consumption of the application in real time</p>
             </div>
 
-            <div id="container" class="ui red segment" style="min-width: 310px; height: 600px; margin: 0 auto"></div>
-            <div id="containerCPU" class="ui yellow segment" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-        </div>
+            <div class="ui segments">
+                <div class="ui  segment">
+                    <h1 class="ui header center">Debug view</h1>
+                    <h4 class="ui horizontal divider header">
+                        <i class="tag icon"></i>
+                        Server informations
+                    </h4>
+                    <p>The following data is meant to be use to debug the application.</p>
+                    <h4 class="ui horizontal divider header">
+                        <i class="bar chart icon"></i>
+                        Specifications
+                    </h4>
+                    <table class="ui definition table">
+                        <tbody>
+                        <tr>
+                            <td class="four wide column">Platform</td>
+                            <td id="platform"></td>
+                        </tr>
+                        <tr>
+                            <td>Number of cpu</td>
+                            <td id="cpus"></td>
+                        </tr>
+                        <tr>
+                            <td>Free memory</td>
+                            <td id="freeMem"></td>
+                        </tr>
+                        <tr>
+                            <td>Total memory</td>
+                            <td id="totalMem"></td>
+                        </tr>
+                        <tr>
+                            <td>Free memory (%)</td>
+                            <td id="freeMemPercentage"></td>
+                        </tr>
+                        <tr>
+                            <td>Server uptime</td>
+                            <td id="uptime"></td>
+                        </tr>
+                        <tr>
+                            <td>Process uptime</td>
+                            <td id="processTime"></td>
+                        </tr>
+                        <tr>
+                            <td>Load average</td>
+                            <td id="loadAvg"></td>
+                        </tr>
+                        </tbody>
+                    </table>
 
+
+
+                </div>
+
+                <div class="ui segment">
+                    <p>The following graph show the memory consumption of the application in real time</p>
+                </div>
+
+                <div id="container" class="ui red segment" style="min-width: 310px; height: 600px; margin: 0 auto"></div>
+                <div id="containerCPU" class="ui yellow segment" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            </div>
+
+        </div>
     </div>
 
     <div class="ui inverted vertical footer segment">
@@ -124,16 +161,8 @@
     </div>
 </div>
 
-<script>
-    $('#menuLogo').click(function(){
-        $('.sidebar')
-                .sidebar('show')
-        ;
-    });
-
-
-</script>
-
+<script src="/javascripts/toastr.js"></script>
+<script src="/javascripts/commons.js"></script>
 <script src="/javascripts/debug.js"></script>
 <script src="//code.highcharts.com/themes/dark-unica.js"></script>
 <script src="//code.highcharts.com/themes/sand-signika.js"></script>

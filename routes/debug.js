@@ -20,5 +20,20 @@ router.get('/cpu', function(req, res, next) {
 });
 
 
+router.get('/infos', function(req, res, next) {
+    var obj = {};
+    obj['platform'] = os.platform();
+    obj['cpus'] = os.cpuCount();
+    obj['freeMem'] = os.freemem();
+    obj['totalMem'] = os.totalmem();
+    obj['freeMemPercentage'] = os.freememPercentage()
+    obj['uptime'] = os.sysUptime();
+    obj['processTime'] = os.processUptime();
+    obj['loadAvg'] = os.loadavg(1);
+
+    res.json(obj);
+});
+
+
 
 module.exports = router;
