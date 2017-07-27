@@ -103,7 +103,6 @@ $.getJSON('/api/servers/' + fullIp, function (data) {
                 }
             }
         },
-
         rangeSelector: {
             buttons: [{
                 count: 5,

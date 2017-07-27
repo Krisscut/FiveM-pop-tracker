@@ -84,6 +84,9 @@ Highcharts.stockChart('container', {
     navigator: {
         enabled: false
     },
+    scrollbar: {
+        enabled: false
+    },
     rangeSelector: {
         enabled:false,
         inputEnabled: false
