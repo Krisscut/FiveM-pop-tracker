@@ -135,6 +135,15 @@ router.get('/:server', function(req, res, next) {
     });
 });
 
+router.get('/:server/infos', function(req, res, next) {
+
+    model.ServerInfo.findOne({"ip": req.params.server}).select("name gameType map maxPlayer ip").exec(function (err, dbServerInfo) {
+        if (err)
+            return logger.error(err);
+        res.json(dbServerInfo);
+    });
+});
+
 /*
 app.get('/p/:tagId', function(req, res) {
     res.send("tagId is set to " + req.params.tagId);

@@ -3,9 +3,6 @@
  */
 
 
-
-
-
 function getCurrentUnixTimestamp(){
     return Math.round((new Date()).getTime() / 1000);
 }
@@ -66,7 +63,7 @@ $.getJSON('/api/servers/' + fullIp, function (data) {
                                 var obj = [];
                                 obj.push(Date.now());
                                 obj.push(lastPoint.y);
-                                
+
                                 series.addPoint(obj);
                             }
                             ajaxData.forEach(function (ajaxElem) {
@@ -162,3 +159,65 @@ $.getJSON('/api/servers/' + fullIp, function (data) {
         }]
     });
 });
+
+
+$('#searchField').click(function(){
+    toastr["info"]("Implementation in progress, the graph will not refresh !! <br> You can altough use the 'ip' parameter in the url to get the data of a specific server :  index.html?ip=46.105.42.129:30120", "Work in progress");
+});
+
+
+$("#searchField").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#searchIcon").click();
+    }
+});
+
+$('#searchIcon').click(function() {
+
+    if (!$('#searchField').val())
+        return;
+
+    $.getJSON('/api/servers/' + $('#searchField').val() + '/infos').done(function (data) {
+
+        if (!data) {
+            console.log("Error while retrieving data for the server " + $('#searchField').val())
+            return;
+        }
+        console.log(data);
+
+        $('#name').transition('fade')
+        $('#name').text(data['name']);
+        $('#name').transition('fade')
+        $('#ip').transition('fade')
+        $('#ip').text(data['ip']);
+        $('#ip').transition('fade')
+        $('#maxPlayers').transition('fade')
+        $('#maxPlayers').text(data['maxPlayer']);
+        $('#maxPlayers').transition('fade')
+        $('#map').transition('fade')
+        $('#map').text(data['map']);
+        $('#map').transition('fade')
+        $('#gametype').transition('fade')
+        $('#gametype').text(data['gameType']);
+        $('#gametype').transition('fade')
+
+        fullIp = data['ip'];
+    }
+    ).fail(commons.handleError);
+
+});
+
+
+
+$('#searchField').val(fullIp);
+$("#searchIcon").click();
+
+
+$('.category .search')
+    .search({
+        type: 'category',
+        apiSettings: {
+            action: 'categorySearch'
+        }
+    })
+;

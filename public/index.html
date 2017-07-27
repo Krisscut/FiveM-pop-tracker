@@ -42,44 +42,80 @@
         <a href="/about.html" class="item">About</a>
     </div>
 
+    <div class="ui grid centered">
+        <div id = "mainContainer" class="ui text ten wide column">
+            <h1 class="ui header">Five-M-pop-Tracker</h1>
+            <p>A basic website whichs track the number of players connected on the various five M servers.</p>
 
-    <div id = "mainContainer" class="ui main text container">
-        <h1 class="ui header">Five-M-pop-Tracker</h1>
-        <p>A basic website whichs track the number of players connected on the various five M servers.</p>
-
-        <div class="ui info message">
-            <!--<i class="close icon"></i>-->
-            <div class="header">
-                Application in development
-            </div>
-            <ul class="list">
-                <li>Not yet stable.</li>
-                <li>You may encounter some bugs.</li>
-                <li>The data may be wipped out.</li>
-            </ul>
-        </div>
-        <div id="loading" class="ui icon message transition">
-            <i class="notched circle loading icon"></i>
-            <div class="content">
+            <div class="ui info message">
+                <!--<i class="close icon"></i>-->
                 <div class="header">
-                    Just one second
+                    Application in development
                 </div>
-                <p>We're fetching that content for you.</p>
+                <ul class="list">
+                    <li>Not yet stable.</li>
+                    <li>You may encounter some bugs.</li>
+                    <li>The data may be wipped out.</li>
+                </ul>
             </div>
-        </div>
-
-        <div class="ui segments">
-            <div class="ui segment">
-                <div id = "searchField" class="ui category search">
-                    <div class="ui icon input" data-tooltip="Search by ip or server name" data-position="left center">
-                        <input class="prompt" type="text" placeholder="Search for a server">
-                        <i class="search icon"></i>
+            <div id="loading" class="ui icon message transition">
+                <i class="notched circle loading icon"></i>
+                <div class="content">
+                    <div class="header">
+                        Just one second
                     </div>
-                    <div class="results"></div>
+                    <p>We're fetching that content for you.</p>
                 </div>
             </div>
 
-            <div id="container" class="ui red segment" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+            <div class="ui segments">
+                <div class="ui segment">
+                    <div class="ui category search">
+                        <div class="ui icon input" data-tooltip="Search by ip or server name" data-position="left center">
+                            <input id="searchField" class="prompt" type="text" placeholder="Search for a server">
+                            <i id="searchIcon" class="search icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui red segment">
+                    <div class="results" class="ui raised card">
+                        <div class="content">
+                            <div class="description">
+                                <h4 class="ui horizontal divider header">
+                                    <i class="bar chart icon"></i>
+                                    Informations
+                                </h4>
+                                <table class="ui definition table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="four wide column">Name</td>
+                                            <td id="name"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ip</td>
+                                            <td id="ip"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Max players</td>
+                                            <td id="maxPlayers"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Map</td>
+                                            <td id="map"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gametype</td>
+                                            <td id="gametype"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -141,16 +177,16 @@
             })
     ;
     */
-    $('#searchField').click(function(){
-        toastr["info"]("Not implemented Yet ! You can altough use the 'ip' parameter in the url to get the data of a specific server :  index.html?ip=46.105.42.129:30120", "Work in progress");
-    });
+
     
 
 </script>
-
+<script src="/javascripts/toastr.js"></script>
+<script src="/javascripts/commons.js"></script>
 <script src="/javascripts/main.js"></script>
+<!--
 <script src="//code.highcharts.com/themes/dark-unica.js"></script>
-<script src="//code.highcharts.com/themes/sand-signika.js"></script>
+<script src="//code.highcharts.com/themes/sand-signika.js"></script>-->
 
 </body>
 </html>
