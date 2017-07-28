@@ -12,7 +12,7 @@ var model = require('../server/model');
 // http://localhost:3000/api/servers
 router.get('/', function(req, res, next) {
     //model.ServerInfo.find("name ip map gameType").exec(function(err, serverInfos) {
-    model.ServerInfo.find("name ip map gameType").distinct("ip").exec(function(err, serverInfos) {
+    model.ServerInfo.find({}, {_id: 0, name:1, ip:1, map:1,  gameType:1}).exec(function(err, serverInfos) {
 
     /*model.ServerInfo.aggregate(
         [

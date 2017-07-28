@@ -58,7 +58,7 @@
                     <li>The data may be wipped out.</li>
                 </ul>
             </div>
-            <div id="loading" class="ui icon message transition">
+            <div id="loading" class="ui icon message transition hidden">
                 <i class="notched circle loading icon"></i>
                 <div class="content">
                     <div class="header">
@@ -69,13 +69,19 @@
             </div>
 
             <div class="ui segments">
-                <div class="ui segment">
-                    <div class="ui category search">
-                        <div class="ui icon input" data-tooltip="Search by ip or server name" data-position="left center">
-                            <input id="searchField" class="prompt" type="text" placeholder="Search for a server">
-                            <i id="searchIcon" class="search icon"></i>
+                <div id= "searchSegment" class="ui segment">
+                    <div id ="categorySearch" class="ui category search" >
+                        <div class="inline field">
+                            <div class="ui icon input" data-tooltip="Search by ip or server name" data-position="left center">
+                                <input id="searchField" class="prompt" type="text" placeholder="Search for a server">
+                                <i id="searchIcon" class="search icon"></i>
+                            </div>
+                            <div id="searchError" class="ui left pointing red basic label hidden">
+                                No result for this input.
+                            </div>
                         </div>
                     </div>
+                    <a class="ui orange right ribbon label"><i class="bug icon"></i>Work In Progress</a>
                 </div>
 
                 <div class="ui red segment">
@@ -113,8 +119,25 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="ui blue segment">
                     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                 </div>
+                <div class="ui yellow segment">
+                    <a class="ui red ribbon label">References</a>
+                    <span>Permalink</span>
+                    <p>Various link to retrieve more info about the servers, or embed this graph in another view</p>
+                    <div class="ui action input">
+                        <input id ="refLink" type="text" placeholder="Permalink to this server">
+                        <button class="ui teal right labeled icon button">
+                            <i class="copy icon"></i>
+                            Copy
+                        </button>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
     </div>

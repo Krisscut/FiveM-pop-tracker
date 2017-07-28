@@ -1,4 +1,12 @@
 #mainContainer{
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
+}
+
+#searchSegment{
+    margin-bottom: 10px;
+}
+
+#categorySearch{
+    position: absolute;
 }
