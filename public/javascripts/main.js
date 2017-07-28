@@ -21,10 +21,13 @@ function setLoading(activated){
 
     var hidden = $('#loading').hasClass("hidden");
 
-    if (activated && hidden)
+    if (activated && hidden){
         $('#loading').transition('slide left')
-    else if (!activated && !hidden)
+        $('#graphSegment').addClass('loading')
+    } else if (!activated && !hidden) {
         $('#loading').transition('slide left')
+        $('#graphSegment').removeClass('loading')
+    }
 
 
 }
@@ -191,7 +194,7 @@ function refreshGraph() {
 
 
 $('#searchField').click(function(){
-    toastr["info"]("Implementation in progress, the graph will not refresh !! <br> You can altough use the 'ip' parameter in the url to get the data of a specific server :  index.html?ip=46.105.42.129:30120", "Work in progress");
+    toastr["info"]("Implementation in progress, please report any bug on github !! <br> You can altough use the 'ip' parameter in the url to get the data of a specific server :  index.html?ip=46.105.42.129:30120", "Work in progress");
 });
 
 
@@ -224,7 +227,6 @@ $('#searchIcon').click(function() {
                 setLoading(false)
                 $('#categorySearch').removeClass("loading");
                 $('#searchError').transition("fade");
-                return;
             }
             console.log(data);
 
@@ -253,47 +255,167 @@ $('#searchIcon').click(function() {
 $("#searchIcon").click();
 
 
-$('.category .search')
-    .search({
-        type: 'category',
-        minCharacters : 3,
-        searchFullText: false,
-        apiSettings: {
-            url: 'api/servers/',
-            onResponse: function(response) {
-                var response = {
-                        results : {}
-                    }
-                    ;
-
-                // creates default category (ip / name)
-                response.results['ip'] = {
-                    name    : 'ip',
-                    results : []
-                };
-                response.results['name'] = {
-                    name    : 'name',
-                    results : []
-                };
-
-                // translate server API response to work with search
-                $.each(response.items, function(index, item) {
-
-                    // add ip result to category
-                    response.results[ip].results.push({
-                        title       : item.ip,
-                        description : item.name,
-                        url         : item.ip
-                    });
-                    // add ip result to category
-                    response.results[name].results.push({
-                        title       : item.name,
-                        description : item.ip,
-                        url         : item.ip
-                    });
-                });
-                return response;
-            }
+/* Load the server list in a json object */
+$.getJSON('/api/servers/')
+    .done(function (data) {
+        if (!data) {
+            console.log("Error while retrieving data for the server " + $('#searchField').val())
+            setLoading(false)
+            $('#categorySearch').removeClass("loading");
+            $('#searchError').transition("fade");
         }
+        var response = {
+                results : {}
+            };
+
+        // creates default category (ip / name)
+        response.results['ip'] = {
+            name    : 'ip',
+            results : []
+        };
+        response.results['name'] = {
+            name    : 'name',
+            results : []
+        };
+
+        // translate server API response to work with search
+        $.each(data, function(index, item) {
+
+            // add ip result to category
+            response.results['ip'].results.push({
+                title       : item.ip,
+                description : item.name,
+                url         : item.ip
+            });
+            // add ip result to category
+            response.results['name'].results.push({
+                title       : item.name,
+                description : item.ip,
+                url         : item.ip
+            });
+        });
+
+
+        $('#categorySearch').search({
+            type: 'category',
+            searchFields: ['ip', 'name'],
+            url: '/api/servers',
+            minCharacters : 3,
+            searchFullText: true,
+            showNoResults: true,
+            debug: true,
+            onSelect: function onSelect(result, response) {
+                console.log(result);
+                $('#searchField').val(result.ip)
+                $("#searchIcon").click();
+            },
+            apiSettings: {
+                responseAsync: function mockResponseAsync(settings, callback) {
+                    if (settings.urlData.query) {
+                        (function() {
+                            var result = {
+                                "results": {}
+                            };
+
+                            // filter by name
+                            data.filter(function(server) {
+                                return server.name.toLowerCase().includes(settings.urlData.query.toLowerCase());
+                            }).forEach(function(item) {
+                                result.results['category' + item.ip.toString()] = {
+                                    "type" : "name",
+                                    "name": item.name.toString(),
+                                    "results": [item]
+                                };
+                            });
+
+                            //filter by ip
+                            data.filter(function(server) {
+                                return server.ip.toLowerCase().includes(settings.urlData.query.toLowerCase());
+                            }).forEach(function(item) {
+                                result.results['category' + item.ip.toString()] = {
+                                    "type" : "ip",
+                                    "name": item.name.toString(),
+                                    "results": [item]
+                                };
+                            });
+                            callback(result);
+                        })();
+                    } else callback({});
+                },
+                throttle: 400
+            },
+            templates: {
+                message: function message(type, _message) {
+                    var html = '<div class="message empty"><div class="header">No users found</div><div class="description">Your search was not successful</div></div>';
+                    return html;
+                },
+                category: function category(response) {
+                    var count = 0;
+                    var html = '';
+                    // deactivated atm as it creates some strange behaviour with the search list
+                    /*
+                    html += '<a class="ui teal left ribbon label">Results</a>'
+                    html += '<a class="ui label"><i class="search icon"></i>' + Object.keys(response.results).length + ' results</a>'
+                    if (Object.keys(response.results).length > 9)
+                        html += '<a class="ui orange tag label">Truncated Results</a>'
+                    */
+
+                    Object.keys(response.results).forEach(function(key) {
+                        if (count > 9){
+                            toastr["warning"]("Too many results, search truncated", "Search Engine");
+                            return false;
+                        }
+
+                        html += '<div class="category"><div class="name">#' + response.results[key].type + '</div><a class="result"><div class="content"><div class="title">' + response.results[key].results[0].name + '</div><div class="description">' + response.results[key].results[0].ip + '</div></div></a></div>';
+                        count ++;
+                    });
+                    return html;
+                }
+            }
+        });
     })
-;
+    .fail(function(){
+        setLoading(false)
+        commons.handleError();
+        $('#categorySearch').removeClass("loading");
+    });
+
+
+var clipboard = new Clipboard('.copyBtn');
+
+clipboard.on('success', function(e) {
+    /*
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+
+    e.clearSelection();*/
+    toastr["success"]("Link copied to the clipboard", "Clipboard");
+});
+
+clipboard.on('error', function(e) {
+    /*
+    console.error('Action:', e.action);
+    console.error('Trigger:', e.trigger);
+    */
+    toastr["error"]("Failed to copy the data to the clipboard", "Clipboard");
+});
+
+$('#aboutMenu').click(function() {
+
+    $('.ui.basic.modal')
+        .modal({
+            closable  : true,
+            /*
+             onDeny    : function(){
+             window.alert('Wait not yet!');
+             return false;
+             },
+             */
+            onApprove : function() {
+                //window.alert('Approved!');
+            }
+        })
+        .modal('show')
+    ;
+});

@@ -15,6 +15,7 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://semantic-ui.com/dist/semantic.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
 
 
 <div class="ui left demo vertical inverted sidebar labeled icon menu">
@@ -39,7 +40,7 @@
         </div>
         <a href="#" class="item">Home</a>
         <a href="https://servers.fivem.net/" class="item">Server list</a>
-        <a href="/about.html" class="item">About</a>
+        <a id="aboutMenu" href="#" class="item">About</a>
     </div>
 
     <div class="ui grid centered">
@@ -120,16 +121,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui blue segment">
+                <div id="graphSegment" class="ui blue segment loading">
                     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                 </div>
                 <div class="ui yellow segment">
                     <a class="ui red ribbon label">References</a>
                     <span>Permalink</span>
                     <p>Various link to retrieve more info about the servers, or embed this graph in another view</p>
-                    <div class="ui action input">
-                        <input id ="refLink" type="text" placeholder="Permalink to this server">
-                        <button class="ui teal right labeled icon button">
+                    <div class="ui fluid action input">
+                        <input id ="refLink" class="disabled" type="text" placeholder="Permalink to this server" readonly="readonly">
+                        <button class="ui teal right labeled icon button copyBtn" data-clipboard-target="#refLink">
                             <i class="copy icon"></i>
                             Copy
                         </button>
@@ -183,6 +184,51 @@
                 <a class="item" href="#">Terms and Conditions</a>
                 <a class="item" href="#">Privacy Policy</a>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+        Modal Title
+    </div>
+    <div class="image content">
+        <div class="image">
+            An image can appear on left or an icon
+        </div>
+        <div class="description">
+            A description can appear on the right
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui button">Cancel</div>
+        <div class="ui button">OK</div>
+    </div>
+</div>
+
+<div class="ui small basic modal">
+    <div class="ui icon header">
+        <i class="user circle outline icon"></i>
+        About
+    </div>
+    <div class="content">
+        <img class="ui small image left floated" src="https://avatars0.githubusercontent.com/u/8125922">
+        <p>This website has been created to help a community to check its progression population wise relatively to the others Five M Servers</p>
+        <p>It uses Node JS as backend server, SemanticUI as UI framework and (soon) will use AngularJS 2.0 as frontend framework</p>
+        <p>Please report any bug that you encounters on github! (check the links in the footer)</p>
+        <p>Created in July 2017 by <strong>Krisscut</strong></p>
+    </div>
+    <div class="actions">
+        <!--
+        <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i>
+            No
+        </div>-->
+
+        <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i>
+            Ok
         </div>
     </div>
 </div>
