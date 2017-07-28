@@ -419,3 +419,11 @@ $('#aboutMenu').click(function() {
         .modal('show')
     ;
 });
+
+$('#aboutContact').click(function() {
+    window.location="mailto:krisscut@hotmail.fr?subject=[FiveMPopTracker] Contact from the website"
+});
+
+$('#aboutGithub').click(function() {
+    openInNewTab("https://github.com/Krisscut/FiveM-pop-tracker");
+});

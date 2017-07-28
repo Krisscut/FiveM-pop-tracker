@@ -25,6 +25,10 @@ commons.secondsToHms = function secondsToHms(duration) {
     return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 
+function openInNewTab(url) {
+    var win = window.open(url, '_blank');
+    win.focus();
+}
 
 // executed on all pages
 $('#menuLogo').click(function(){

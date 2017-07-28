@@ -10,3 +10,7 @@
 #categorySearch{
     position: absolute;
 }
+
+span.tiny{
+    font-size: 0.5rem;
+}
