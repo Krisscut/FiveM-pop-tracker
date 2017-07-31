@@ -239,8 +239,8 @@ $('#searchIcon').click(function() {
             fullIp = data['ip'];
             refreshGraph();         // refreshGraph handle the loading state of the application
 
-            var host = window.location.hostname;
-            $('#refLink').val(host + "?ip=" + data['ip'])
+            // set the referal link at the bottom of the page:
+            $('#refLink').val(location.protocol+ '//'+ location.hostname+(location.port ? ':'+location.port: '') + "?ip=" + data['ip'])
 
         }
 )       .fail(function(){
