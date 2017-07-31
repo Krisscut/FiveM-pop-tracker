@@ -401,29 +401,4 @@ clipboard.on('error', function(e) {
     toastr["error"]("Failed to copy the data to the clipboard", "Clipboard");
 });
 
-$('#aboutMenu').click(function() {
 
-    $('.ui.basic.modal')
-        .modal({
-            closable  : true,
-            /*
-             onDeny    : function(){
-             window.alert('Wait not yet!');
-             return false;
-             },
-             */
-            onApprove : function() {
-                //window.alert('Approved!');
-            }
-        })
-        .modal('show')
-    ;
-});
-
-$('#aboutContact').click(function() {
-    window.location="mailto:krisscut@hotmail.fr?subject=[FiveMPopTracker] Contact from the website"
-});
-
-$('#aboutGithub').click(function() {
-    openInNewTab("https://github.com/Krisscut/FiveM-pop-tracker");
-});

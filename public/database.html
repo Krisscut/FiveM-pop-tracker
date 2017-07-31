@@ -39,7 +39,7 @@
         </div>
         <a href="#" class="item">Home</a>
         <a href="https://servers.fivem.net/" class="item">Server list</a>
-        <a href="/about.html" class="item">About</a>
+        <a id="aboutMenu" href="#" class="item">About</a>
     </div>
 
 
@@ -146,16 +146,44 @@
     </div>
 </div>
 
-<script>
-    $('#menuLogo').click(function(){
-        $('.sidebar')
-                .sidebar('show')
-        ;
-    });
+<div class="ui small basic modal">
+    <div class="ui icon header">
+        <i class="user circle outline icon"></i>
+        About
+    </div>
+    <div class="content">
+        <img class="ui small image left floated" src="https://avatars0.githubusercontent.com/u/8125922">
+        <img class="ui tiny image right floated" src="images/logo.png">
+        <p>This website has been created to help a community to check its progression population wise relatively to the others Five M Servers</p>
+        <p>It uses Node JS as backend server, SemanticUI as UI framework and (soon) will use AngularJS 2.0 as frontend framework</p>
+        <p>Please report any bug that you encounters on github! (check the links in the footer)</p>
+        <p>Created in July 2017 by <strong>Krisscut</strong><span class="tiny"> from Ladislas' original idea</span></p>
+    </div>
+    <div class="actions">
+        <!--
+        <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i>
+            No
+        </div>-->
 
 
-</script>
+        <div id="aboutMail" class="ui teal ok inverted button">
+            <i class="mail Outline icon"></i>
+            Contact
+        </div>
+        <div id="aboutGithub" class="ui blue ok inverted button">
+            <i class="github icon"></i>
+            Github
+        </div>
+        <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i>
+            Ok
+        </div>
+    </div>
+</div>
+
 <script src="/javascripts/toastr.js"></script>
+<script src="/javascripts/commons.js"></script>
 <script src="/javascripts/database.js"></script>
 <script src="//code.highcharts.com/themes/dark-unica.js"></script>
 <script src="//code.highcharts.com/themes/sand-signika.js"></script>
